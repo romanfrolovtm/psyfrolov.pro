@@ -8,8 +8,19 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://psyfrolov.pro/?lang=en"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://psyfrolov.pro/?lang=pl"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://psyfrolov.pro/?lang=ru"/>
-    <lastmod>2026-06-26</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://psyfrolov.pro/method.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://psyfrolov.pro/method.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://psyfrolov.pro/method.html?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://psyfrolov.pro/method.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://psyfrolov.pro/method.html?lang=pl"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://psyfrolov.pro/method.html?lang=ru"/>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
