@@ -1392,7 +1392,7 @@ function setLang(l){
   try{localStorage.setItem('lang',l);}catch(e){}
   try{var u=new URL(location.href);if(l==='uk'&&!u.searchParams.get('lang')){}else{u.searchParams.set('lang',l);history.replaceState(null,'',u.toString());}}catch(e){}
 }
-(function(){try{var p=new URLSearchParams(location.search).get('lang');var l=(p&&['uk','ru','en','pl'].indexOf(p)>=0)?p:(localStorage.getItem('lang')||'uk');setLang(l);}catch(e){setLang('uk');}})();
+(function(){try{var langs=['uk','ru','en','pl'];var p=new URLSearchParams(location.search).get('lang');var s=null;try{s=localStorage.getItem('lang');}catch(e){}var n=null;try{var nl=(navigator.languages&&navigator.languages[0])||navigator.language||'';nl=nl.slice(0,2).toLowerCase();if(nl==='be'||nl==='kk')nl='ru';if(langs.indexOf(nl)>=0)n=nl;}catch(e){}var l=(p&&langs.indexOf(p)>=0)?p:(s&&langs.indexOf(s)>=0)?s:(n||'uk');setLang(l);}catch(e){setLang('uk');}})();
 
 // LIGHTBOX GALLERY
 var docItems=Array.prototype.slice.call(document.querySelectorAll('.doc-item'));
