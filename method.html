@@ -28,6 +28,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://psyfrolov.pro/og.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://psyfrolov.pro/method.html#webpage","url":"https://psyfrolov.pro/method.html","name":"Метод · Когнітивно-поведінкова терапія (КПТ)","inLanguage":["uk","pl","en","ru"],"isPartOf":{"@id":"https://psyfrolov.pro/#website"},"about":{"@type":"MedicalTherapy","name":"Cognitive Behavioural Therapy","alternateName":["КПТ","CBT","terapia poznawczo-behawioralna"]},"breadcrumb":{"@id":"https://psyfrolov.pro/method.html#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://psyfrolov.pro/method.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Головна","item":"https://psyfrolov.pro/"},{"@type":"ListItem","position":2,"name":"Метод","item":"https://psyfrolov.pro/method.html"}]}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -633,6 +635,7 @@ section[id]{scroll-margin-top:94px;}
 .mnav a{color:var(--white);text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:30px;letter-spacing:.5px;}
 .mnav a.active,.mnav a:hover{color:var(--gold);}
 @media(max-width:1024px){.nav-links{display:none;}.nav-burger{display:flex;}}
+section{scroll-margin-top:84px;}
 </style>
 </head>
 <body class="lang-uk">
@@ -861,8 +864,8 @@ section[id]{scroll-margin-top:94px;}
 <footer>
   <div class="ft-logo" style="display:flex;align-items:center;gap:12px;"><span class="logo-mark ft-mark" role="img" aria-label="FR"></span><span class="uk">Роман Фролов</span><span class="ru">Роман Фролов</span><span class="en">Roman Frolov</span><span class="pl">Roman Frolov</span></div>
   <div class="ft-copy">
-    <span class="uk">© 2026 · Магістр психології · Консультування в рамках КПТ · Онлайн</span>
-    <span class="ru">© 2026 · Магистр психологии · Консультирование в рамках КПТ · Онлайн</span><span class="en">© 2026 · Master of Psychology · Counselling within the CBT approach · Online</span><span class="pl">© 2026 · Magister psychologii · Poradnictwo w nurcie CBT · Online</span>
+    <span class="uk">© 2026 Роман Фролов · Магістр психології · КПТ · Онлайн · Всі права захищені</span>
+    <span class="ru">© 2026 Роман Фролов · Магистр психологии · КПТ · Онлайн · Все права защищены</span><span class="en">© 2026 Roman Frolov · Master of Psychology · CBT · Online · All rights reserved</span><span class="pl">© 2026 Roman Frolov · Magister psychologii · CBT · Online · Wszelkie prawa zastrzeżone</span>
     <br><a href="https://app.mindlyspace.com/s/f1H4yX" target="_blank" style="color:var(--gold);font-size:9px;letter-spacing:1px;text-decoration:none;opacity:.7;">Mindly → app.mindlyspace.com/s/f1H4yX</a>
   </div>
   <ul class="ft-links">
@@ -933,13 +936,20 @@ function setLang(l){
     if(!id) return;
     e.preventDefault();
     if(id === '#'){
-      window.scrollTo({top:0,behavior: reduce ? 'auto' : 'smooth'});
+      window.scrollTo({top:0,behavior: (reduce||window.innerWidth<=1024) ? 'auto' : 'smooth'});
       if(history.replaceState) history.replaceState(null,'',location.pathname);
       return;
     }
     var t = document.querySelector(id);
     if(!t) return;
-    var yy = t.getBoundingClientRect().top + window.pageYOffset - 72; window.scrollTo({top: yy, behavior: reduce ? 'auto' : 'smooth'});
+    var mob = (reduce || window.innerWidth<=1024);
+    t.scrollIntoView({behavior: mob ? 'auto' : 'smooth', block:'start'});
+    if(mob){
+      var k=0, iv=setInterval(function(){ t.scrollIntoView({block:'start'}); if(++k>=7) clearInterval(iv); }, 110);
+      var stop=function(){ clearInterval(iv); };
+      window.addEventListener('touchstart', stop, {once:true, passive:true});
+      window.addEventListener('wheel', stop, {once:true, passive:true});
+    }
     e.stopPropagation();
     if(history.replaceState) history.replaceState(null,'',id);
   }, true);
