@@ -645,6 +645,20 @@ section{scroll-margin-top:84px;}
 .faq-item[open] summary{color:var(--gold-light);}
 .faq-item[open] summary::after{transform:rotate(45deg);}
 .faq-a{padding:0 2px 26px;font-size:12.5px;line-height:1.9;color:var(--white-60);max-width:680px;}
+
+/* ===== STICKY MOBILE CTA ===== */
+.scta{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(to top,rgba(9,9,11,.97) 55%,rgba(9,9,11,0));
+  transform:translateY(130%);transition:transform .45s cubic-bezier(.22,1,.36,1);pointer-events:none;}
+.scta.on{transform:translateY(0);pointer-events:auto;}
+.scta a{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
+  background:var(--gold-grad);color:#141005;text-decoration:none;border-radius:3px;
+  font-family:'Montserrat',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:2.6px;text-transform:uppercase;
+  padding:16px 18px;box-shadow:0 10px 34px rgba(201,168,76,.28);}
+.scta a svg{width:15px;height:15px;flex:0 0 auto;}
+.scta .scta-note{display:block;text-align:center;font-size:8.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--white-30);margin-top:7px;}
+@media(max-width:1024px){.scta{display:block;}}
+@media(prefers-reduced-motion:reduce){.scta{transition:none;}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Як проходить перша сесія?", "acceptedAnswer": {"@type": "Answer", "text": "Перша зустріч — знайомство та оцінка запиту: що відбувається, як давно, чого ви хочете досягти. Наприкінці — чесна відповідь, чи можу я допомогти, і план роботи."}}, {"@type": "Question", "name": "Скільки триває робота?", "acceptedAnswer": {"@type": "Answer", "text": "КПТ — короткостроковий підхід: зазвичай від кількох до 15–20 сесій залежно від запиту. Прогрес відстежується за вимірними показниками."}}, {"@type": "Question", "name": "Чи ефективний онлайн-формат?", "acceptedAnswer": {"@type": "Answer", "text": "Так, дослідження показують, що онлайн-КПТ за ефективністю можна порівняти з очною роботою. Сесія триває 45 хвилин по відеозв'язку."}}, {"@type": "Question", "name": "Скільки коштує сесія?", "acceptedAnswer": {"@type": "Answer", "text": "Індивідуальна сесія 45 хвилин — 3000 грн / 60 EUR / 70 USD / 275 PLN. Оплата через Mindly або за домовленістю у Telegram."}}, {"@type": "Question", "name": "Це конфіденційно?", "acceptedAnswer": {"@type": "Answer", "text": "Повністю конфіденційно. Зміст сесій не передається третім особам."}}, {"@type": "Question", "name": "Чим психолог відрізняється від психіатра?", "acceptedAnswer": {"@type": "Answer", "text": "Психіатр — лікар, що встановлює діагнози та призначає ліки. Психолог працює психологічними методами і не надає медичних послуг."}}]}</script>
 </head>
@@ -1099,11 +1113,11 @@ section{scroll-margin-top:84px;}
       <div class="price-alt uk">₴ · $ · zł — за курсом НБУ на момент замовлення</div><div class="price-alt ru">₴ · $ · zł — по курсу НБУ на момент заказа</div><div class="price-alt en">₴ · $ · zł — at the NBU rate on the day of booking</div><div class="price-alt pl">₴ · $ · zł — według kursu NBU w dniu rezerwacji</div>
       <div class="price-dur uk">60 хвилин · робота з парою · онлайн</div><div class="price-dur ru">60 минут · работа с парой · онлайн</div><div class="price-dur en">60 minutes · work with a couple · online</div><div class="price-dur pl">60 minut · praca z parą · online</div>
       <ul class="price-list">
-        <li><span class="uk">Каркас — когнітивно-поведінкова робота з парами (CBCT, Epstein &amp; Baucom)</span><span class="ru">Каркас — когнитивно-поведенческая работа с парами (CBCT, Epstein &amp; Baucom)</span><span class="en">Framework — Cognitive Behavioral Couple Therapy (CBCT, Epstein &amp; Baucom)</span><span class="pl">Rama — poznawczo-behawioralna praca z parami (CBCT, Epstein &amp; Baucom)</span></li>
-        <li><span class="uk">Рамка циклу «пара проти патерну» — EFT (S.&nbsp;Johnson) та IBCT (A.&nbsp;Christensen)</span><span class="ru">Рамка цикла «пара против паттерна» — EFT (S.&nbsp;Johnson) и IBCT (A.&nbsp;Christensen)</span><span class="en">"Couple vs. the pattern" cycle frame — EFT (S.&nbsp;Johnson) and IBCT (A.&nbsp;Christensen)</span><span class="pl">Rama cyklu „para kontra wzorzec" — EFT (S.&nbsp;Johnson) i IBCT (A.&nbsp;Christensen)</span></li>
-        <li><span class="uk">Діагностика за стандартами Gottman Institute, APA та WHO mhGAP</span><span class="ru">Диагностика по стандартам Gottman Institute, APA и WHO mhGAP</span><span class="en">Assessment to Gottman Institute, APA and WHO mhGAP standards</span><span class="pl">Diagnostyka według standardów Gottman Institute, APA i WHO mhGAP</span></li>
-        <li><span class="uk">Інструменти: ABC-модель Бека/Елліса, тайм-аут протокол, enactment</span><span class="ru">Инструменты: ABC-модель Бека/Эллиса, тайм-аут протокол, enactment</span><span class="en">Tools: Beck/Ellis ABC model, time-out protocol, enactment</span><span class="pl">Narzędzia: model ABC Becka/Ellisa, protokół time-out, enactment</span></li>
-        <li><span class="uk">Орієнтир курсу — 8–20 сесій, контроль прогресу кожні 4 сесії (NICE, APA)</span><span class="ru">Ориентир курса — 8–20 сессий, контроль прогресса каждые 4 сессии (NICE, APA)</span><span class="en">Course guide — 8–20 sessions, progress review every 4 sessions (NICE, APA)</span><span class="pl">Orientacyjnie 8–20 sesji, przegląd postępów co 4 sesje (NICE, APA)</span></li>
+        <li><span class="uk">Будь-який запит пари: конфлікти й комунікація, довіра та її втрата, зрада та відновлення після неї, ревнощі, близькість, батьківство, гроші та розподіл ролей, побут, кризи переїзду й розлуки, рішення про розлучення чи розставання, супровід сепарації та цивілізованого завершення стосунків</span><span class="ru">Любой запрос пары: конфликты и коммуникация, доверие и его потеря, измена и восстановление после неё, ревность, близость, родительство, деньги и распределение ролей, быт, кризисы переезда и разлуки, решение о разводе или расставании, сопровождение сепарации и цивилизованного завершения отношений</span><span class="en">Any couple's request: conflict and communication, trust and its loss, infidelity and recovery after it, jealousy, intimacy, parenting, money and roles, daily life, relocation and separation crises, decisions about divorce or breaking up, support through separation and a civil ending of the relationship</span><span class="pl">Każdy temat pary: konflikty i komunikacja, zaufanie i jego utrata, zdrada i odbudowa po niej, zazdrość, bliskość, rodzicielstwo, pieniądze i podział ról, codzienność, kryzysy przeprowadzki i rozłąki, decyzje o rozwodzie lub rozstaniu, wsparcie w separacji i cywilizowanym zakończeniu związku</span></li>
+        <li><span class="uk">Робота лише в межах доказових протоколів — жодної езотерики та «авторських методик»</span><span class="ru">Работа только в рамках доказательных протоколов — никакой эзотерики и «авторских методик»</span><span class="en">Work strictly within evidence-based protocols — no esoterics, no "author's own methods"</span><span class="pl">Praca wyłącznie w ramach protokołów opartych na dowodach — bez ezoteryki i „autorskich metod"</span></li>
+        <li><span class="uk">Доказова база: когнітивно-поведінкова терапія пар, інтегративна поведінкова терапія пар, емоційно-фокусована терапія, дослідження Інституту Готтмана</span><span class="ru">Доказательная база: когнитивно-поведенческая терапия пар, интегративная поведенческая терапия пар, эмоционально-фокусированная терапия, исследования Института Готтмана</span><span class="en">Evidence base: Cognitive Behavioral Couple Therapy, Integrative Behavioral Couple Therapy, Emotionally Focused Therapy, Gottman Institute research</span><span class="pl">Baza dowodowa: poznawczo-behawioralna terapia par, integracyjna behawioralna terapia par, terapia skoncentrowana na emocjach, badania Instytutu Gottmana</span></li>
+        <li><span class="uk">Стандарти безпеки та якості: Американська психологічна асоціація, Всесвітня організація охорони здоров'я, Національний інститут охорони здоров'я Великої Британії</span><span class="ru">Стандарты безопасности и качества: Американская психологическая ассоциация, Всемирная организация здравоохранения, Национальный институт здравоохранения Великобритании</span><span class="en">Safety and quality standards: American Psychological Association, World Health Organization, National Institute for Health and Care Excellence</span><span class="pl">Standardy bezpieczeństwa i jakości: Amerykańskie Towarzystwo Psychologiczne, Światowa Organizacja Zdrowia, Narodowy Instytut Zdrowia Wielkiej Brytanii</span></li>
+        <li><span class="uk">Інструменти й тривалість підбираються під ваш запит; прогрес вимірюється на контрольних точках</span><span class="ru">Инструменты и длительность подбираются под ваш запрос; прогресс измеряется на контрольных точках</span><span class="en">Tools and duration are chosen to fit your request; progress is measured at checkpoints</span><span class="pl">Narzędzia i długość dobierane są do Twojego tematu; postęp mierzony jest w punktach kontrolnych</span></li>
       </ul>
       <a href="method.html#couples" style="display:block;text-align:center;margin:-8px 0 14px;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);text-decoration:none;"><span class="uk">Повна методологія парної роботи →</span><span class="ru">Полная методология парной работы →</span><span class="en">Full couples-work methodology →</span><span class="pl">Pełna metodologia pracy z parami →</span></a>
       <a href="https://t.me/psyfrolov" target="_blank" class="btn-gold" style="display:block;text-align:center;"><svg class="tg-btn"><use href="#tg-logo"/></svg><span class="uk">Записатися в Telegram</span><span class="ru">Записаться в Telegram</span><span class="en">Book on Telegram</span><span class="pl">Umów na Telegramie</span></a>
@@ -1611,6 +1625,34 @@ function fallback(text,ok){try{var t=document.createElement('textarea');t.value=
     closeMenu();
   }, true);
   document.addEventListener('keydown',function(e){ if(e.key==='Escape')closeMenu(); });
+})();
+</script>
+<div class="scta" id="scta" aria-hidden="true">
+  <a href="https://t.me/psyfrolov" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#tg-logo"/></svg>
+    <span class="uk">Записатися на консультацію</span><span class="ru">Записаться на консультацию</span><span class="en">Book a consultation</span><span class="pl">Umów konsultację</span>
+  </a>
+  <span class="scta-note"><span class="uk">Відповідь у Telegram — зазвичай того ж дня</span><span class="ru">Ответ в Telegram — обычно в тот же день</span><span class="en">Reply on Telegram — usually the same day</span><span class="pl">Odpowiedź na Telegramie — zwykle tego samego dnia</span></span>
+</div>
+
+<script>
+(function(){
+  var el=document.getElementById('scta'); if(!el) return;
+  var contact=document.getElementById('contact');
+  function upd(){
+    try{
+      var show = window.pageYOffset > window.innerHeight*0.75;
+      if(show && contact){
+        var r=contact.getBoundingClientRect();
+        if(r.top < window.innerHeight*0.9) show=false;   /* прячем у блока контактов */
+      }
+      el.classList.toggle('on', show);
+      el.setAttribute('aria-hidden', show?'false':'true');
+    }catch(e){}
+  }
+  window.addEventListener('scroll', upd, {passive:true});
+  window.addEventListener('resize', upd);
+  upd();
 })();
 </script>
 </body>
