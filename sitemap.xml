@@ -4,22 +4,88 @@
   <url>
     <loc>https://psyfrolov.pro/</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://psyfrolov.pro/"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://psyfrolov.pro/?lang=uk"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://psyfrolov.pro/?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://psyfrolov.pro/?lang=pl"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://psyfrolov.pro/?lang=ru"/>
-    <lastmod>2026-07-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://psyfrolov.pro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://psyfrolov.pro/en.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://psyfrolov.pro/pl.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://psyfrolov.pro/ru.html"/>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://psyfrolov.pro/en.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://psyfrolov.pro/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://psyfrolov.pro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://psyfrolov.pro/en.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://psyfrolov.pro/pl.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://psyfrolov.pro/ru.html"/>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://psyfrolov.pro/pl.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://psyfrolov.pro/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://psyfrolov.pro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://psyfrolov.pro/en.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://psyfrolov.pro/pl.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://psyfrolov.pro/ru.html"/>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://psyfrolov.pro/ru.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://psyfrolov.pro/"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://psyfrolov.pro/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://psyfrolov.pro/en.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://psyfrolov.pro/pl.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://psyfrolov.pro/ru.html"/>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://psyfrolov.pro/method.html</loc>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://psyfrolov.pro/method.html"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://psyfrolov.pro/method.html?lang=uk"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://psyfrolov.pro/method.html?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://psyfrolov.pro/method.html?lang=pl"/>
-    <xhtml:link rel="alternate" hreflang="ru" href="https://psyfrolov.pro/method.html?lang=ru"/>
-    <lastmod>2026-07-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://psyfrolov.pro/method.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://psyfrolov.pro/method-en.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://psyfrolov.pro/method-pl.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://psyfrolov.pro/method-ru.html"/>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://psyfrolov.pro/method-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://psyfrolov.pro/method.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://psyfrolov.pro/method.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://psyfrolov.pro/method-en.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://psyfrolov.pro/method-pl.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://psyfrolov.pro/method-ru.html"/>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://psyfrolov.pro/method-pl.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://psyfrolov.pro/method.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://psyfrolov.pro/method.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://psyfrolov.pro/method-en.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://psyfrolov.pro/method-pl.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://psyfrolov.pro/method-ru.html"/>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://psyfrolov.pro/method-ru.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://psyfrolov.pro/method.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://psyfrolov.pro/method.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://psyfrolov.pro/method-en.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://psyfrolov.pro/method-pl.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://psyfrolov.pro/method-ru.html"/>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
