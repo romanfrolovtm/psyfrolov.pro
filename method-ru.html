@@ -938,6 +938,8 @@ section{scroll-margin-top:84px;}
     <li><a href="index.html#services"><span class="ru">Направления</span></a></li>
     <li><a href="index.html#docs"><span class="ru">Документы</span></a></li>
     <li><a href="index.html#contact"><span class="ru">Записаться</span></a></li>
+  
+    <li><a href="/privacy-ru.html"><span class="ru">Политика конфиденциальности</span></a></li>
   </ul>
   <div class="ft-social" aria-label="Соцмережі">
     <a href="https://t.me/psyfrolov" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></a>
@@ -1055,5 +1057,47 @@ function setLang(l){
   document.addEventListener('keydown',function(e){ if(e.key==='Escape')closeMenu(); });
 })();
 </script>
+
+<style id="cookie-css">
+#cookieBar{position:fixed;left:0;right:0;bottom:0;z-index:300;background:rgba(15,15,18,.97);backdrop-filter:blur(10px);border-top:1px solid rgba(201,168,76,.3);padding:16px 20px;display:none;transform:translateY(100%);transition:transform .4s ease;}
+#cookieBar.show{display:block;transform:translateY(0);}
+#cookieBar .cb-in{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;}
+#cookieBar p{font-size:12.5px;color:rgba(245,243,238,.82);margin:0;flex:1;min-width:220px;line-height:1.55;font-family:'Montserrat',sans-serif;}
+#cookieBar a.cb-more{color:var(--gold,#C9A84C);text-decoration:underline;}
+#cookieBar .cb-btns{display:flex;gap:10px;}
+#cookieBar button{font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.5px;padding:10px 22px;border-radius:8px;cursor:pointer;border:1px solid rgba(201,168,76,.4);background:transparent;color:#F5F3EE;transition:.2s;}
+#cookieBar button.cb-accept{background:var(--gold,#C9A84C);color:#0F0F12;border-color:var(--gold,#C9A84C);font-weight:600;}
+#cookieBar button:hover{opacity:.85;}
+@media(max-width:600px){#cookieBar .cb-in{flex-direction:column;gap:12px;}}
+</style>
+
+<div id="cookieBar" role="dialog" aria-label="cookie">
+  <div class="cb-in">
+    <p>Мы используем файлы cookie для корректной работы сайта. Аналитические cookie — только с вашего согласия. <a class="cb-more" href="/privacy-ru.html">Политика конфиденциальности</a></p>
+    <div class="cb-btns">
+      <button class="cb-decline" onclick="cookieChoice(false)">Отклонить</button>
+      <button class="cb-accept" onclick="cookieChoice(true)">Принять</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  try{
+    var c=localStorage.getItem('cookieConsent');
+    if(!c){var b=document.getElementById('cookieBar');if(b){setTimeout(function(){b.classList.add('show');},800);}}
+    else if(c==='accept'){loadAnalytics();}
+  }catch(e){}
+})();
+function cookieChoice(ok){
+  try{localStorage.setItem('cookieConsent',ok?'accept':'decline');}catch(e){}
+  var b=document.getElementById('cookieBar');if(b){b.classList.remove('show');}
+  if(ok){loadAnalytics();}
+}
+function loadAnalytics(){
+  /* Плейсхолдер: сюда подключится Google Analytics 4 после согласия.
+     Пока трекеров нет — функция пустая. */
+}
+</script>
+
 </body>
 </html>
