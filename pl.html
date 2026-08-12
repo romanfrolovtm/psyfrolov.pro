@@ -1737,8 +1737,23 @@ function cookieChoice(ok){
   if(ok){loadAnalytics();}
 }
 function loadAnalytics(){
-  /* Плейсхолдер: сюда подключится Google Analytics 4 после согласия.
-     Пока трекеров нет — функция пустая. */
+  if(window.__gaInit)return; window.__gaInit=1;
+  var ID='G-4HH7VMJ948';
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){dataLayer.push(arguments);};
+  gtag('js',new Date());
+  gtag('config',ID,{anonymize_ip:true,send_page_view:true});
+  var s=document.createElement('script');
+  s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+ID;
+  document.head.appendChild(s);
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null; if(!a)return;
+    var h=a.getAttribute('href')||'', L=document.documentElement.lang||'';
+    var T=(a.textContent||'').trim().slice(0,50);
+    if(a.classList.contains('lang-btn')) gtag('event','lang_switch',{link_text:T,page_lang:L});
+    else if(h.indexOf('t.me/')>-1) gtag('event','book_click',{link_text:T,page_lang:L});
+    else if(h.indexOf('mindlyspace.com')>-1) gtag('event','mindly_click',{link_text:T,page_lang:L});
+  },true);
 }
 </script>
 
