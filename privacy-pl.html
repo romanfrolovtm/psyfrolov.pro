@@ -23,7 +23,13 @@
 :root{--gold:#C9A84C;--white:#F5F3EE;--bg:#0F0F12;--muted:rgba(245,243,238,.72);}
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--white);font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.75;padding:0;}
-.wrap{max-width:760px;margin:0 auto;padding:64px 24px 96px;}
+.wrap{max-width:760px;margin:0 auto;padding:26px 24px 96px;}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:40px;padding-bottom:18px;border-bottom:1px solid rgba(201,168,76,.15);flex-wrap:wrap;}
+.nav .nav-logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:var(--gold);text-decoration:none;letter-spacing:.5px;}
+.nav .nav-items{display:flex;gap:20px;flex-wrap:wrap;}
+.nav .nav-items a{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(245,243,238,.62);text-decoration:none;transition:.2s;}
+.nav .nav-items a:hover,.nav .nav-items a.active{color:var(--gold);}
+.nav .nav-items a.cta{color:var(--gold);border:1px solid rgba(201,168,76,.4);padding:6px 14px;border-radius:7px;}
 .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
 h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:42px;font-weight:600;color:var(--white);margin-bottom:8px;line-height:1.1;}
 .updated{font-size:13px;color:var(--muted);margin-bottom:44px;}
@@ -33,10 +39,29 @@ a{color:var(--gold);}
 .back{display:inline-block;margin-top:48px;font-size:14px;letter-spacing:.5px;color:var(--gold);text-decoration:none;border:1px solid rgba(201,168,76,.35);padding:12px 26px;border-radius:10px;transition:.2s;}
 .back:hover{background:rgba(201,168,76,.08);}
 .divider{width:60px;height:1px;background:var(--gold);opacity:.4;margin:0 0 44px;}
+#cookieBar{position:fixed;left:0;right:0;bottom:0;z-index:300;background:rgba(15,15,18,.97);backdrop-filter:blur(10px);border-top:1px solid rgba(201,168,76,.3);padding:16px 20px;display:none;transform:translateY(100%);transition:transform .4s ease;}
+#cookieBar.show{display:block;transform:translateY(0);}
+#cookieBar .cb-in{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;}
+#cookieBar p{font-size:12.5px;color:rgba(245,243,238,.82);margin:0;flex:1;min-width:220px;line-height:1.55;font-family:'Montserrat',sans-serif;}
+#cookieBar a.cb-more{color:var(--gold);text-decoration:underline;}
+#cookieBar .cb-btns{display:flex;gap:10px;}
+#cookieBar button{font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.5px;padding:10px 22px;border-radius:8px;cursor:pointer;border:1px solid rgba(201,168,76,.4);background:transparent;color:#F5F3EE;transition:.2s;}
+#cookieBar button.cb-accept{background:var(--gold);color:#0F0F12;border-color:var(--gold);font-weight:600;}
+#cookieBar button:hover{opacity:.85;}
+@media(max-width:600px){#cookieBar .cb-in{flex-direction:column;gap:12px;} .nav{gap:10px;} .nav .nav-items{gap:12px;}}
 </style>
 </head>
 <body>
 <div class="wrap">
+  <nav class="nav">
+    <a class="nav-logo" href="/pl.html">FR · psyfrolov.pro</a>
+    <div class="nav-items">
+      <a href="/pl.html">Strona główna</a>
+      <a href="/method-pl.html">Metoda</a>
+      <a href="/blog-pl.html">Blog</a>
+      <a href="/pl.html#contact" class="cta">Umów wizytę</a>
+    </div>
+  </nav>
   <div class="eyebrow">psyfrolov.pro</div>
   <h1>Polityka prywatności</h1>
   <div class="updated">Zaktualizowano: luty 2026</div>
@@ -55,9 +80,30 @@ a{color:var(--gold);}
 <p>W sprawach prywatności skontaktuj się przez Telegram: @psyfrolov. Odpowiemy w rozsądnym terminie.</p>
   <a class="back" href="/pl.html">← Strona główna</a>
 </div>
+<div id="cookieBar" role="dialog" aria-label="cookie">
+  <div class="cb-in">
+    <p>Używamy plików cookie, aby strona działała poprawnie. Cookie analityczne — tylko za Twoją zgodą. <a class="cb-more" href="/privacy-pl.html">Polityka prywatności</a></p>
+    <div class="cb-btns">
+      <button class="cb-decline" onclick="cookieChoice(false)">Odrzuć</button>
+      <button class="cb-accept" onclick="cookieChoice(true)">Akceptuję</button>
+    </div>
+  </div>
+</div>
 <script>
 (function(){
-  try{ if(localStorage.getItem('cookieConsent')!=='accept') return; }catch(e){ return; }
+  try{
+    var c=localStorage.getItem('cookieConsent');
+    if(!c){var b=document.getElementById('cookieBar');if(b){setTimeout(function(){b.classList.add('show');},800);}}
+    else if(c==='accept'){loadAnalytics();}
+  }catch(e){}
+})();
+function cookieChoice(ok){
+  try{localStorage.setItem('cookieConsent',ok?'accept':'decline');}catch(e){}
+  var b=document.getElementById('cookieBar');if(b){b.classList.remove('show');}
+  if(ok){loadAnalytics();}
+}
+function loadAnalytics(){
+  if(window.__gaInit)return; window.__gaInit=1;
   var ID='G-4HH7VMJ948';
   window.dataLayer=window.dataLayer||[];
   window.gtag=function(){dataLayer.push(arguments);};
@@ -74,7 +120,7 @@ a{color:var(--gold);}
     else if(h.indexOf('t.me/')>-1) gtag('event','book_click',{link_text:T,page_lang:L});
     else if(h.indexOf('mindlyspace.com')>-1) gtag('event','mindly_click',{link_text:T,page_lang:L});
   },true);
-})();
+}
 </script>
 </body>
 </html>
