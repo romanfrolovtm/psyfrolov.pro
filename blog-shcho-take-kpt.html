@@ -153,35 +153,31 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 </div>
 <script>
 (function(){
-  try{
-    var c=localStorage.getItem('cookieConsent');
-    if(!c){var b=document.getElementById('cookieBar');if(b){setTimeout(function(){b.classList.add('show');},800);}}
-    else if(c==='accept'){loadAnalytics();}
-  }catch(e){}
-})();
-function cookieChoice(ok){
-  try{localStorage.setItem('cookieConsent',ok?'accept':'decline');}catch(e){}
-  var b=document.getElementById('cookieBar');if(b){b.classList.remove('show');}
-  if(ok){loadAnalytics();}
-}
-function loadAnalytics(){
-  if(window.__gaInit)return; window.__gaInit=1;
   var ID='G-4HH7VMJ948';
   window.dataLayer=window.dataLayer||[];
-  window.gtag=function(){dataLayer.push(arguments);};
+  function gtag(){dataLayer.push(arguments);} window.gtag=gtag;
+  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
   gtag('js',new Date());
   gtag('config',ID,{anonymize_ip:true,send_page_view:true});
-  var s=document.createElement('script');
-  s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+ID;
-  document.head.appendChild(s);
+  var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);
+  try{
+    var c=localStorage.getItem('cookieConsent');
+    if(c==='accept'){gtag('consent','update',{analytics_storage:'granted'});}
+    else if(!c){var b=document.getElementById('cookieBar');if(b){setTimeout(function(){b.classList.add('show');},800);}}
+  }catch(e){}
   document.addEventListener('click',function(e){
     var a=e.target&&e.target.closest?e.target.closest('a'):null; if(!a)return;
     var h=a.getAttribute('href')||'', L=document.documentElement.lang||'';
     var T=(a.textContent||'').trim().slice(0,50);
-    if(a.classList.contains('lang-btn')) gtag('event','lang_switch',{link_text:T,page_lang:L});
+    if(a.classList.contains('lang-btn')||(a.closest&&a.closest('.nav-lang'))) gtag('event','lang_switch',{link_text:T,page_lang:L});
     else if(h.indexOf('t.me/')>-1) gtag('event','book_click',{link_text:T,page_lang:L});
     else if(h.indexOf('mindlyspace.com')>-1) gtag('event','mindly_click',{link_text:T,page_lang:L});
   },true);
+})();
+function cookieChoice(ok){
+  try{localStorage.setItem('cookieConsent',ok?'accept':'decline');}catch(e){}
+  var b=document.getElementById('cookieBar');if(b){b.classList.remove('show');}
+  if(ok&&window.gtag){gtag('consent','update',{analytics_storage:'granted'});}
 }
 </script>
 </body>

@@ -993,126 +993,31 @@ function setLang(l){
 </script>
 <script>
 (function(){
- try{
-  var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-
-  // Smooth in-page navigation (also stops in-app viewer's "Open Link" prompt)
-  document.addEventListener('click', function(e){
-    var a = e.target.closest && e.target.closest('a[href^="#"]');
-    if(!a) return;
-    var id = a.getAttribute('href');
-    if(!id) return;
-    e.preventDefault();
-    if(id === '#'){
-      window.scrollTo({top:0,behavior: (reduce||window.innerWidth<=1024) ? 'auto' : 'smooth'});
-      if(history.replaceState) history.replaceState(null,'',location.pathname);
-      return;
-    }
-    var t = document.querySelector(id);
-    if(!t) return;
-    var mob = (reduce || window.innerWidth<=1024);
-    t.scrollIntoView({behavior: mob ? 'auto' : 'smooth', block:'start'});
-    if(mob){
-      var k=0, iv=setInterval(function(){ t.scrollIntoView({block:'start'}); if(++k>=14) clearInterval(iv); }, 130);
-      var stop=function(){ clearInterval(iv); };
-      window.addEventListener('touchstart', stop, {once:true, passive:true});
-      window.addEventListener('wheel', stop, {once:true, passive:true});
-    }
-    e.stopPropagation();
-    if(history.replaceState) history.replaceState(null,'',id);
-  }, true);
-
-  // Scroll progress bar
-  var bar = document.getElementById('scrollbar');
-  // Scroll-spy: highlight active nav link
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a[href^="#"]:not(.nav-cta)'));
-  var sections = navLinks.map(function(l){ return document.querySelector(l.getAttribute('href')); });
-  function onScroll(){
-    var h = document.documentElement;
-    var max = (h.scrollHeight - h.clientHeight) || 1;
-    if(bar) bar.style.width = (Math.min(1, h.scrollTop / max) * 100) + '%';
-    var pos = window.scrollY + 130, cur = -1;
-    for(var k=0;k<sections.length;k++){
-      var s = sections[k];
-      if(s && s.offsetTop <= pos) cur = k;
-    }
-    navLinks.forEach(function(l,idx){ l.classList.toggle('active', idx===cur); });
-  }
-  window.addEventListener('scroll', onScroll, {passive:true});
-  window.addEventListener('resize', onScroll);
-  onScroll();
- }catch(err){}
-})();
-</script>
-<script>
-(function(){
-  var burger=document.getElementById('burger');
-  var mnav=document.getElementById('mnav');
-  function closeMenu(){ if(!mnav)return; mnav.classList.remove('open'); if(burger){burger.classList.remove('open');burger.setAttribute('aria-expanded','false');} }
-  function openMenu(){ if(!mnav)return; mnav.classList.add('open'); if(burger){burger.classList.add('open');burger.setAttribute('aria-expanded','true');} }
-  window.toggleMenu=function(){ if(mnav&&mnav.classList.contains('open'))closeMenu(); else openMenu(); };
-  document.addEventListener('click',function(e){
-    var a=e.target&&e.target.closest?e.target.closest('a'):null;
-    if(!a||!mnav||!mnav.contains(a))return;
-    closeMenu();
-  }, true);
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape')closeMenu(); });
-})();
-</script>
-
-<style id="cookie-css">
-#cookieBar{position:fixed;left:0;right:0;bottom:0;z-index:300;background:rgba(15,15,18,.97);backdrop-filter:blur(10px);border-top:1px solid rgba(201,168,76,.3);padding:16px 20px;display:none;transform:translateY(100%);transition:transform .4s ease;}
-#cookieBar.show{display:block;transform:translateY(0);}
-#cookieBar .cb-in{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center;}
-#cookieBar p{font-size:12.5px;color:rgba(245,243,238,.82);margin:0;flex:1;min-width:220px;line-height:1.55;font-family:'Montserrat',sans-serif;}
-#cookieBar a.cb-more{color:var(--gold,#C9A84C);text-decoration:underline;}
-#cookieBar .cb-btns{display:flex;gap:10px;}
-#cookieBar button{font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.5px;padding:10px 22px;border-radius:8px;cursor:pointer;border:1px solid rgba(201,168,76,.4);background:transparent;color:#F5F3EE;transition:.2s;}
-#cookieBar button.cb-accept{background:var(--gold,#C9A84C);color:#0F0F12;border-color:var(--gold,#C9A84C);font-weight:600;}
-#cookieBar button:hover{opacity:.85;}
-@media(max-width:600px){#cookieBar .cb-in{flex-direction:column;gap:12px;}}
-</style>
-
-<div id="cookieBar" role="dialog" aria-label="cookie">
-  <div class="cb-in">
-    <p>Używamy plików cookie, aby strona działała poprawnie. Cookie analityczne — tylko za Twoją zgodą. <a class="cb-more" href="/privacy-pl.html">Polityka prywatności</a></p>
-    <div class="cb-btns">
-      <button class="cb-decline" onclick="cookieChoice(false)">Odrzuć</button>
-      <button class="cb-accept" onclick="cookieChoice(true)">Akceptuję</button>
-    </div>
-  </div>
-</div>
-<script>
-(function(){
-  try{
-    var c=localStorage.getItem('cookieConsent');
-    if(!c){var b=document.getElementById('cookieBar');if(b){setTimeout(function(){b.classList.add('show');},800);}}
-    else if(c==='accept'){loadAnalytics();}
-  }catch(e){}
-})();
-function cookieChoice(ok){
-  try{localStorage.setItem('cookieConsent',ok?'accept':'decline');}catch(e){}
-  var b=document.getElementById('cookieBar');if(b){b.classList.remove('show');}
-  if(ok){loadAnalytics();}
-}
-function loadAnalytics(){
-  if(window.__gaInit)return; window.__gaInit=1;
   var ID='G-4HH7VMJ948';
   window.dataLayer=window.dataLayer||[];
-  window.gtag=function(){dataLayer.push(arguments);};
+  function gtag(){dataLayer.push(arguments);} window.gtag=gtag;
+  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
   gtag('js',new Date());
   gtag('config',ID,{anonymize_ip:true,send_page_view:true});
-  var s=document.createElement('script');
-  s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+ID;
-  document.head.appendChild(s);
+  var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);
+  try{
+    var c=localStorage.getItem('cookieConsent');
+    if(c==='accept'){gtag('consent','update',{analytics_storage:'granted'});}
+    else if(!c){var b=document.getElementById('cookieBar');if(b){setTimeout(function(){b.classList.add('show');},800);}}
+  }catch(e){}
   document.addEventListener('click',function(e){
     var a=e.target&&e.target.closest?e.target.closest('a'):null; if(!a)return;
     var h=a.getAttribute('href')||'', L=document.documentElement.lang||'';
     var T=(a.textContent||'').trim().slice(0,50);
-    if(a.classList.contains('lang-btn')) gtag('event','lang_switch',{link_text:T,page_lang:L});
+    if(a.classList.contains('lang-btn')||(a.closest&&a.closest('.nav-lang'))) gtag('event','lang_switch',{link_text:T,page_lang:L});
     else if(h.indexOf('t.me/')>-1) gtag('event','book_click',{link_text:T,page_lang:L});
     else if(h.indexOf('mindlyspace.com')>-1) gtag('event','mindly_click',{link_text:T,page_lang:L});
   },true);
+})();
+function cookieChoice(ok){
+  try{localStorage.setItem('cookieConsent',ok?'accept':'decline');}catch(e){}
+  var b=document.getElementById('cookieBar');if(b){b.classList.remove('show');}
+  if(ok&&window.gtag){gtag('consent','update',{analytics_storage:'granted'});}
 }
 </script>
 
