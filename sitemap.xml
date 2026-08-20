@@ -661,4 +661,48 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://psyfrolov.pro/tools.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://psyfrolov.pro/tools.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://psyfrolov.pro/tools.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://psyfrolov.pro/tools-en.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://psyfrolov.pro/tools-pl.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://psyfrolov.pro/tools-ru.html"/>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://psyfrolov.pro/tools-en.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://psyfrolov.pro/tools.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://psyfrolov.pro/tools.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://psyfrolov.pro/tools-en.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://psyfrolov.pro/tools-pl.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://psyfrolov.pro/tools-ru.html"/>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://psyfrolov.pro/tools-pl.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://psyfrolov.pro/tools.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://psyfrolov.pro/tools.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://psyfrolov.pro/tools-en.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://psyfrolov.pro/tools-pl.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://psyfrolov.pro/tools-ru.html"/>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://psyfrolov.pro/tools-ru.html</loc>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://psyfrolov.pro/tools.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://psyfrolov.pro/tools.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://psyfrolov.pro/tools-en.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://psyfrolov.pro/tools-pl.html"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://psyfrolov.pro/tools-ru.html"/>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
