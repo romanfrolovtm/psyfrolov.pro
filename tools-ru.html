@@ -135,13 +135,14 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 .bx-btn.stop{background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,.45);}
 .emdr-wrap{display:flex;flex-direction:column;align-items:center;padding:8px 0 4px;}
 .emdr-stage{position:relative;width:100%;max-width:420px;height:70px;margin:6px 0 22px;border:1px solid rgba(201,168,76,.22);border-radius:14px;background:rgba(201,168,76,.03);overflow:hidden;}
-.emdr-dot{position:absolute;top:50%;left:16px;width:22px;height:22px;margin-top:-11px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px rgba(201,168,76,.7);}
+.emdr-dot{position:absolute;top:50%;left:16px;width:clamp(20px,5.5vw,30px);height:clamp(20px,5.5vw,30px);margin-top:calc(-1*clamp(10px,2.75vw,15px));border-radius:50%;background:var(--gold);box-shadow:0 0 20px rgba(201,168,76,.75);}
 .emdr-stats{display:flex;gap:34px;margin-bottom:20px;}
 .emdr-stat{display:flex;flex-direction:column;align-items:center;gap:2px;}
 .es-n{font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--gold);line-height:1;}
 .es-l{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(245,243,238,.45);}
 .emdr-speed{display:flex;align-items:center;gap:12px;margin-bottom:22px;font-size:12px;color:rgba(245,243,238,.6);}
 .emdr-speed input[type="range"]{accent-color:var(--gold);width:140px;}
+.emdr-speed-note{max-width:380px;text-align:center;font-size:12px;color:rgba(245,243,238,.5);line-height:1.65;margin-top:18px;}
 .bx-done{display:none;margin-top:16px;font-size:14px;color:var(--gold);text-align:center;}
 .bx-done.on{display:block;animation:fade .4s ease;}
 @media(min-width:620px){.tool-grid{grid-template-columns:repeat(2,1fr);}}
@@ -259,10 +260,10 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 
   <!-- EMDR / Bilateral stimulation -->
   <div class="panel" id="p-emdr">
-    <div class="note">Метод десенсибилизации и переработки травматического опыта движениями глаз. Разработан Франсин Шапиро в 1987 году. Для взрослых с ПТСР руководство NICE (NG116) рассматривает EMDR наряду с травма-ориентированной КПТ как вариант терапии первой линии.</div>
+    <div class="note">Метод десенсибилизации и переработки травматического опыта движениями глаз. Разработан американским психологом Франсин Шапиро в 1987 году — она заметила, что движения глаз могут снижать интенсивность тревожных воспоминаний, и построила на этом наблюдении структурированный терапевтический протокол. Механизм до конца не выяснен, но ведущая гипотеза связывает билатеральную стимуляцию (поочерёдную активацию левого и правого полушарий) с тем, как мозг естественным образом перерабатывает воспоминания во время фазы быстрого сна (REM). Управляемые движения глаз или другая билатеральная стимуляция, вероятно, активируют похожий процесс в состоянии бодрствования, помогая «разблокировать» воспоминание, оставшееся эмоционально «застрявшим». Для взрослых с ПТСР руководство NICE (NG116) рассматривает EMDR наряду с травма-ориентированной КПТ как вариант терапии первой линии.</div>
     <div class="about-box">
       <h3>Как применять</h3>
-      <ol style="margin:0 0 0 18px;"><li style="margin-bottom:8px;">Вспомните стрессовое событие и удерживайте его в фокусе внимания</li><li style="margin-bottom:8px;">Сядьте удобно, точка движения — на уровне глаз, на расстоянии вытянутой руки</li><li style="margin-bottom:8px;">Нажмите «Старт» и плавно следите глазами за точкой, голова неподвижна</li><li style="margin-bottom:8px;">Один цикл — движение вправо и влево. Ориентир — 10–12 циклов за подход</li><li style="margin-bottom:8px;">Общая продолжительность подхода — 2–5 минут</li><li style="margin-bottom:8px;">После завершения отметьте, как изменилось состояние</li></ol>
+      <ol style="margin:0 0 0 18px;"><li style="margin-bottom:8px;">Вспомните стрессовое событие и удерживайте его в фокусе внимания</li><li style="margin-bottom:8px;">Сядьте удобно, точка движения — на уровне глаз, на комфортном для вас расстоянии</li><li style="margin-bottom:8px;">Нажмите «Старт» и плавно следите глазами за точкой, голова неподвижна</li><li style="margin-bottom:8px;">Один цикл — движение вправо и влево. Ориентир — 10–12 циклов за подход (см. примечание о скорости ниже)</li><li style="margin-bottom:8px;">Общая продолжительность подхода — 2–5 минут в зависимости от выбранной скорости</li><li style="margin-bottom:8px;">После завершения отметьте, как изменилось состояние</li></ol>
     </div>
     <div class="emdr-wrap">
       <div class="emdr-stage"><div class="emdr-dot" id="emdr-dot"></div></div>
@@ -275,6 +276,7 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
         <input type="range" id="emdr-range" min="1" max="5" value="3" oninput="emdrSpeedChange(this.value)">
       </div>
       <button class="bx-btn" id="emdr-btn" onclick="toggleEmdr()">Старт</button>
+      <div class="emdr-speed-note">Скорость влияет на продолжительность подхода: на средней скорости один цикл (движение вправо и влево) длится примерно 9 секунд, поэтому 10–12 циклов занимают ориентировочно 1,5–2 минуты. На более медленной скорости тот же подход растягивается до 3–4 минут.</div>
     </div>
     <div class="note" style="margin-top:26px;"><strong>Важно.</strong> Этот инструмент — для самопомощи и снижения острого стресса, он не является полноценной терапией ЕМДР. Глубокая переработка травматического опыта проводится только обученным терапевтом в сопровождаемом формате.</div>
     <div class="note" style="margin-top:14px;"><strong>Противопоказания.</strong> Не используйте упражнение во время острого психотического эпизода или при наличии эпилепсии. При сомнениях — проконсультируйтесь с врачом.</div>
@@ -375,7 +377,7 @@ function stopBx(manual){
 
 /* EMDR bilateral stimulation — requestAnimationFrame */
 var emdrOn=false,emdrRaf=null,emdrStart=0,emdrElapsed=0,emdrCyc=0,emdrDir=1,emdrSpeed=3;
-var EMDR_W=null,EMDR_PERIOD=[0,3600,2800,2000,1300,800]; // ms за один проход (индекс = speed)
+var EMDR_W=null,EMDR_PERIOD=[0,8000,6000,4500,3000,2000]; // ms за один проход (индекс = speed); при 3 (средняя) цикл ≈9с, 10–12 циклів ≈ 1.5–2 хв
 function emdrSpeedChange(v){emdrSpeed=parseInt(v,10);}
 function emdrWidth(){
   var stage=document.querySelector('.emdr-stage');

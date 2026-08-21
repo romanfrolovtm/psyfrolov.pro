@@ -135,13 +135,14 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 .bx-btn.stop{background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,.45);}
 .emdr-wrap{display:flex;flex-direction:column;align-items:center;padding:8px 0 4px;}
 .emdr-stage{position:relative;width:100%;max-width:420px;height:70px;margin:6px 0 22px;border:1px solid rgba(201,168,76,.22);border-radius:14px;background:rgba(201,168,76,.03);overflow:hidden;}
-.emdr-dot{position:absolute;top:50%;left:16px;width:22px;height:22px;margin-top:-11px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px rgba(201,168,76,.7);}
+.emdr-dot{position:absolute;top:50%;left:16px;width:clamp(20px,5.5vw,30px);height:clamp(20px,5.5vw,30px);margin-top:calc(-1*clamp(10px,2.75vw,15px));border-radius:50%;background:var(--gold);box-shadow:0 0 20px rgba(201,168,76,.75);}
 .emdr-stats{display:flex;gap:34px;margin-bottom:20px;}
 .emdr-stat{display:flex;flex-direction:column;align-items:center;gap:2px;}
 .es-n{font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--gold);line-height:1;}
 .es-l{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(245,243,238,.45);}
 .emdr-speed{display:flex;align-items:center;gap:12px;margin-bottom:22px;font-size:12px;color:rgba(245,243,238,.6);}
 .emdr-speed input[type="range"]{accent-color:var(--gold);width:140px;}
+.emdr-speed-note{max-width:380px;text-align:center;font-size:12px;color:rgba(245,243,238,.5);line-height:1.65;margin-top:18px;}
 .bx-done{display:none;margin-top:16px;font-size:14px;color:var(--gold);text-align:center;}
 .bx-done.on{display:block;animation:fade .4s ease;}
 @media(min-width:620px){.tool-grid{grid-template-columns:repeat(2,1fr);}}
@@ -259,10 +260,10 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 
   <!-- EMDR / Bilateral stimulation -->
   <div class="panel" id="p-emdr">
-    <div class="note">Metoda odczulania i przetwarzania doświadczenia traumatycznego za pomocą ruchów gałek ocznych. Opracowana przez Francine Shapiro w 1987 roku. Dla dorosłych z PTSD wytyczne NICE (NG116) wymieniają EMDR obok terapii CBT skoncentrowanej na traumie jako opcję terapii pierwszego wyboru.</div>
+    <div class="note">Metoda odczulania i przetwarzania doświadczenia traumatycznego za pomocą ruchów gałek ocznych. Opracowana przez amerykańską psycholożkę Francine Shapiro w 1987 roku — zauważyła ona, że ruchy oczu mogą zmniejszać intensywność niepokojących wspomnień, i na tej obserwacji zbudowała ustrukturyzowany protokół terapeutyczny. Mechanizm nie jest w pełni wyjaśniony, ale wiodąca hipoteza łączy stymulację bilateralną (naprzemienną aktywację lewej i prawej półkuli) ze sposobem, w jaki mózg naturalnie przetwarza wspomnienia podczas fazy snu REM. Kierowane ruchy oczu lub inna stymulacja bilateralna prawdopodobnie aktywują podobny proces na jawie, pomagając „odblokować” wspomnienie pozostające emocjonalnie „utknięte”. Dla dorosłych z PTSD wytyczne NICE (NG116) wymieniają EMDR obok terapii CBT skoncentrowanej na traumie jako opcję terapii pierwszego wyboru.</div>
     <div class="about-box">
       <h3>Jak stosować</h3>
-      <ol style="margin:0 0 0 18px;"><li style="margin-bottom:8px;">Przypomnij sobie stresujące wydarzenie i utrzymuj je w uwadze</li><li style="margin-bottom:8px;">Usiądź wygodnie, punkt ruchu na wysokości oczu, w odległości wyciągniętej ręki</li><li style="margin-bottom:8px;">Naciśnij „Start” i płynnie śledź punkt wzrokiem, głowa pozostaje nieruchoma</li><li style="margin-bottom:8px;">Jeden cykl to ruch w prawo i w lewo. Orientacyjnie 10–12 cykli na sesję</li><li style="margin-bottom:8px;">Całkowity czas sesji: 2–5 minut</li><li style="margin-bottom:8px;">Po zakończeniu zauważ, jak zmienił się Twój stan</li></ol>
+      <ol style="margin:0 0 0 18px;"><li style="margin-bottom:8px;">Przypomnij sobie stresujące wydarzenie i utrzymuj je w uwadze</li><li style="margin-bottom:8px;">Usiądź wygodnie, punkt ruchu na wysokości oczu, w odległości komfortowej dla Ciebie</li><li style="margin-bottom:8px;">Naciśnij „Start” i płynnie śledź punkt wzrokiem, głowa pozostaje nieruchoma</li><li style="margin-bottom:8px;">Jeden cykl to ruch w prawo i w lewo. Orientacyjnie 10–12 cykli na sesję (zobacz uwagę o szybkości poniżej)</li><li style="margin-bottom:8px;">Całkowity czas sesji: 2–5 minut, w zależności od wybranej szybkości</li><li style="margin-bottom:8px;">Po zakończeniu zauważ, jak zmienił się Twój stan</li></ol>
     </div>
     <div class="emdr-wrap">
       <div class="emdr-stage"><div class="emdr-dot" id="emdr-dot"></div></div>
@@ -275,6 +276,7 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
         <input type="range" id="emdr-range" min="1" max="5" value="3" oninput="emdrSpeedChange(this.value)">
       </div>
       <button class="bx-btn" id="emdr-btn" onclick="toggleEmdr()">Start</button>
+      <div class="emdr-speed-note">Szybkość wpływa na czas trwania sesji: przy średniej szybkości jeden cykl (ruch w prawo i w lewo) trwa około 9 sekund, więc 10–12 cykli zajmuje orientacyjnie 1,5–2 minuty. Przy wolniejszej szybkości ta sama sesja wydłuża się do 3–4 minut.</div>
     </div>
     <div class="note" style="margin-top:26px;"><strong>Ważne.</strong> To narzędzie służy do samopomocy i redukcji ostrego stresu, nie jest pełną terapią EMDR. Głębokie przetwarzanie doświadczenia traumatycznego prowadzi wyłącznie przeszkolony terapeuta w formie nadzorowanej.</div>
     <div class="note" style="margin-top:14px;"><strong>Przeciwwskazania.</strong> Nie stosuj ćwiczenia podczas ostrego epizodu psychotycznego ani przy padaczce. W razie wątpliwości skonsultuj się z lekarzem.</div>
@@ -375,7 +377,7 @@ function stopBx(manual){
 
 /* EMDR bilateral stimulation — requestAnimationFrame */
 var emdrOn=false,emdrRaf=null,emdrStart=0,emdrElapsed=0,emdrCyc=0,emdrDir=1,emdrSpeed=3;
-var EMDR_W=null,EMDR_PERIOD=[0,3600,2800,2000,1300,800]; // ms за один проход (индекс = speed)
+var EMDR_W=null,EMDR_PERIOD=[0,8000,6000,4500,3000,2000]; // ms за один проход (индекс = speed); при 3 (средняя) цикл ≈9с, 10–12 циклів ≈ 1.5–2 хв
 function emdrSpeedChange(v){emdrSpeed=parseInt(v,10);}
 function emdrWidth(){
   var stage=document.querySelector('.emdr-stage');

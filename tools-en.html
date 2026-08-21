@@ -135,13 +135,14 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 .bx-btn.stop{background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,.45);}
 .emdr-wrap{display:flex;flex-direction:column;align-items:center;padding:8px 0 4px;}
 .emdr-stage{position:relative;width:100%;max-width:420px;height:70px;margin:6px 0 22px;border:1px solid rgba(201,168,76,.22);border-radius:14px;background:rgba(201,168,76,.03);overflow:hidden;}
-.emdr-dot{position:absolute;top:50%;left:16px;width:22px;height:22px;margin-top:-11px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px rgba(201,168,76,.7);}
+.emdr-dot{position:absolute;top:50%;left:16px;width:clamp(20px,5.5vw,30px);height:clamp(20px,5.5vw,30px);margin-top:calc(-1*clamp(10px,2.75vw,15px));border-radius:50%;background:var(--gold);box-shadow:0 0 20px rgba(201,168,76,.75);}
 .emdr-stats{display:flex;gap:34px;margin-bottom:20px;}
 .emdr-stat{display:flex;flex-direction:column;align-items:center;gap:2px;}
 .es-n{font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--gold);line-height:1;}
 .es-l{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(245,243,238,.45);}
 .emdr-speed{display:flex;align-items:center;gap:12px;margin-bottom:22px;font-size:12px;color:rgba(245,243,238,.6);}
 .emdr-speed input[type="range"]{accent-color:var(--gold);width:140px;}
+.emdr-speed-note{max-width:380px;text-align:center;font-size:12px;color:rgba(245,243,238,.5);line-height:1.65;margin-top:18px;}
 .bx-done{display:none;margin-top:16px;font-size:14px;color:var(--gold);text-align:center;}
 .bx-done.on{display:block;animation:fade .4s ease;}
 @media(min-width:620px){.tool-grid{grid-template-columns:repeat(2,1fr);}}
@@ -259,10 +260,10 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 
   <!-- EMDR / Bilateral stimulation -->
   <div class="panel" id="p-emdr">
-    <div class="note">A method for desensitising and reprocessing traumatic experiences through eye movements. Developed by Francine Shapiro in 1987. For adults with PTSD, the NICE guideline (NG116) lists EMDR alongside trauma-focused CBT as a first-line treatment option.</div>
+    <div class="note">A method for desensitising and reprocessing traumatic experiences through eye movements. Developed by American psychologist Francine Shapiro in 1987 — she noticed that eye movements could reduce the intensity of distressing memories, and built a structured therapeutic protocol on that observation. The exact mechanism is not fully understood, but the leading hypothesis links bilateral stimulation (alternating activation of the left and right hemispheres) to how the brain naturally reprocesses memories during REM (rapid eye movement) sleep. Guided eye movements or other bilateral stimulation are thought to activate a similar process while awake, helping to "unstick" a memory that has remained emotionally lodged. For adults with PTSD, the NICE guideline (NG116) lists EMDR alongside trauma-focused CBT as a first-line treatment option.</div>
     <div class="about-box">
       <h3>How to use it</h3>
-      <ol style="margin:0 0 0 18px;"><li style="margin-bottom:8px;">Recall a stressful event and keep it in focus</li><li style="margin-bottom:8px;">Sit comfortably, the moving point at eye level, an arm's length away</li><li style="margin-bottom:8px;">Press "Start" and follow the point smoothly with your eyes, keeping your head still</li><li style="margin-bottom:8px;">One cycle is a movement right and left. Aim for 10–12 cycles per session</li><li style="margin-bottom:8px;">Total session length: 2–5 minutes</li><li style="margin-bottom:8px;">Afterwards, notice how your state has changed</li></ol>
+      <ol style="margin:0 0 0 18px;"><li style="margin-bottom:8px;">Recall a stressful event and keep it in focus</li><li style="margin-bottom:8px;">Sit comfortably, the moving point at eye level, at whatever distance feels comfortable for your screen</li><li style="margin-bottom:8px;">Press "Start" and follow the point smoothly with your eyes, keeping your head still</li><li style="margin-bottom:8px;">One cycle is a movement right and left. Aim for 10–12 cycles per session (see the speed note below)</li><li style="margin-bottom:8px;">Total session length: 2–5 minutes, depending on the speed you choose</li><li style="margin-bottom:8px;">Afterwards, notice how your state has changed</li></ol>
     </div>
     <div class="emdr-wrap">
       <div class="emdr-stage"><div class="emdr-dot" id="emdr-dot"></div></div>
@@ -275,6 +276,7 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
         <input type="range" id="emdr-range" min="1" max="5" value="3" oninput="emdrSpeedChange(this.value)">
       </div>
       <button class="bx-btn" id="emdr-btn" onclick="toggleEmdr()">Start</button>
+      <div class="emdr-speed-note">Speed affects how long a session takes: at medium speed, one cycle (a movement right and left) lasts about 9 seconds, so 10–12 cycles take roughly 1.5–2 minutes. At a slower speed, the same session stretches to 3–4 minutes.</div>
     </div>
     <div class="note" style="margin-top:26px;"><strong>Important.</strong> This tool is for self-help and reducing acute stress — it is not full EMDR therapy. Deep reprocessing of traumatic experience should only be done with a trained therapist in a supervised setting.</div>
     <div class="note" style="margin-top:14px;"><strong>Contraindications.</strong> Do not use during an acute psychotic episode or if you have epilepsy. If in doubt, consult a doctor.</div>
@@ -375,7 +377,7 @@ function stopBx(manual){
 
 /* EMDR bilateral stimulation — requestAnimationFrame */
 var emdrOn=false,emdrRaf=null,emdrStart=0,emdrElapsed=0,emdrCyc=0,emdrDir=1,emdrSpeed=3;
-var EMDR_W=null,EMDR_PERIOD=[0,3600,2800,2000,1300,800]; // ms за один проход (индекс = speed)
+var EMDR_W=null,EMDR_PERIOD=[0,8000,6000,4500,3000,2000]; // ms за один проход (индекс = speed); при 3 (средняя) цикл ≈9с, 10–12 циклів ≈ 1.5–2 хв
 function emdrSpeedChange(v){emdrSpeed=parseInt(v,10);}
 function emdrWidth(){
   var stage=document.querySelector('.emdr-stage');
