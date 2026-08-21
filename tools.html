@@ -133,9 +133,19 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 .bx-cyc{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);opacity:.75;}
 .bx-btn{background:var(--gold);color:#0F0F12;border:none;font-family:inherit;font-weight:600;font-size:13px;letter-spacing:.5px;padding:13px 34px;border-radius:9px;cursor:pointer;transition:.2s;}
 .bx-btn.stop{background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,.45);}
+.emdr-wrap{display:flex;flex-direction:column;align-items:center;padding:8px 0 4px;}
+.emdr-stage{position:relative;width:100%;max-width:420px;height:70px;margin:6px 0 22px;border:1px solid rgba(201,168,76,.22);border-radius:14px;background:rgba(201,168,76,.03);overflow:hidden;}
+.emdr-dot{position:absolute;top:50%;left:16px;width:22px;height:22px;margin-top:-11px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px rgba(201,168,76,.7);}
+.emdr-stats{display:flex;gap:34px;margin-bottom:20px;}
+.emdr-stat{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.es-n{font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--gold);line-height:1;}
+.es-l{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(245,243,238,.45);}
+.emdr-speed{display:flex;align-items:center;gap:12px;margin-bottom:22px;font-size:12px;color:rgba(245,243,238,.6);}
+.emdr-speed input[type="range"]{accent-color:var(--gold);width:140px;}
 .bx-done{display:none;margin-top:16px;font-size:14px;color:var(--gold);text-align:center;}
 .bx-done.on{display:block;animation:fade .4s ease;}
-@media(min-width:620px){.tool-grid{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:620px){.tool-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:900px){.tool-grid{grid-template-columns:repeat(4,1fr);}}
 
 .about-box{margin:0 0 26px;padding:24px 26px;border:1px solid rgba(201,168,76,.18);border-radius:14px;background:rgba(201,168,76,.035);}
 .about-box h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:21px;color:var(--gold);margin:0 0 12px;font-weight:600;}
@@ -167,22 +177,23 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
     <button class="tool-card" id="c-phq" onclick="openTool('phq')"><div class="tc-name">PHQ-9</div><div class="tc-sub">Скринінг депресії · 9 запитань · 2 хвилини</div></button>
     <button class="tool-card" id="c-gad" onclick="openTool('gad')"><div class="tc-name">GAD-7</div><div class="tc-sub">Скринінг тривоги · 7 запитань · 2 хвилини</div></button>
     <button class="tool-card" id="c-bx" onclick="openTool('bx')"><div class="tc-name">Квадратне дихання</div><div class="tc-sub">Вправа саморегуляції · 4 цикли</div></button>
+    <button class="tool-card" id="c-emdr" onclick="openTool('emdr')"><div class="tc-name">Білатеральна стимуляція</div><div class="tc-sub">EMDR/ДПДГ · 10–12 циклів</div></button>
   </div>
 
   <!-- PHQ-9 -->
   <div class="panel" id="p-phq">
-    <div class="about-box"><h3>Про опитувальник PHQ-9</h3><p><strong>Що це.</strong> PHQ-9 (Patient Health Questionnaire-9) — коротка шкала самооцінки, що вимірює вираженість депресивних симптомів за останні два тижні. Дев'ять пунктів опитувальника відповідають дев'яти діагностичним критеріям депресивного епізоду.</p><p><strong>Хто розробив.</strong> Опитувальник створили д-р Robert L. Spitzer, д-р Janet B.W. Williams та д-р Kurt Kroenke з колегами в межах проєкту PRIME-MD за освітнім грантом компанії Pfizer. Це один із найпоширеніших інструментів скринінгу депресії у світі.</p><p><strong>Для чого застосовується.</strong> PHQ-9 використовують у первинній медичній допомозі та психологічній практиці для двох завдань: виявити ймовірну наявність депресивних симптомів і — за повторного проходження — відстежувати динаміку стану в часі. Кожен пункт оцінюється від 0 до 3, максимум 27 балів.</p><p><strong>Чого він не робить.</strong> Опитувальник не встановлює діагноз і не замінює клінічну оцінку. Високий бал означає лише те, що симптоми виражені й варто звернутися до фахівця для повноцінної оцінки.</p></div>
+    <div class="about-box"><h3>Про опитувальник PHQ-9</h3><p><strong>Що це.</strong> PHQ-9 (Patient Health Questionnaire-9) — коротка шкала самооцінки, що вимірює вираженість депресивних симптомів за останні два тижні. Дев'ять пунктів опитувальника відповідають дев'яти діагностичним критеріям депресивного епізоду.</p><p><strong>Хто розробив.</strong> Опитувальник створили д-р Robert L. Spitzer, д-р Janet B.W. Williams та д-р Kurt Kroenke з колегами в межах проєкту PRIME-MD за освітнім грантом компанії Pfizer. Український переклад — ліцензована версія Українського інституту КПТ (2012). Це один із найпоширеніших інструментів скринінгу депресії у світі.</p><p><strong>Для чого застосовується.</strong> PHQ-9 використовують у первинній медичній допомозі та психологічній практиці для двох завдань: виявити ймовірну наявність депресивних симптомів і — за повторного проходження — відстежувати динаміку стану в часі. Кожен пункт оцінюється від 0 до 3, максимум 27 балів.</p><p><strong>Чого він не робить.</strong> Опитувальник не встановлює діагноз і не замінює клінічну оцінку. Високий бал означає лише те, що симптоми виражені й варто звернутися до фахівця для повноцінної оцінки.</p></div>
     <div class="note">Як часто за останні 2 тижні вас турбували такі проблеми?</div>
     <div class="qbar"><i id="bar-phq"></i></div>
-    <div class="q"><div class="q-txt"><span class="qn">01</span>Вам було не дуже цікаво або подобалось чимось займатись</div><div class="opts"><button type="button" onclick="pick('phq',0,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',0,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',0,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',0,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
-<div class="q"><div class="q-txt"><span class="qn">02</span>Ви почувалися сумними, пригніченими або безнадійними</div><div class="opts"><button type="button" onclick="pick('phq',1,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',1,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',1,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',1,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
-<div class="q"><div class="q-txt"><span class="qn">03</span>Вам було важко засинати або не прокидатись, або Ви спали надто довго</div><div class="opts"><button type="button" onclick="pick('phq',2,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',2,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',2,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',2,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
-<div class="q"><div class="q-txt"><span class="qn">04</span>Ви відчували втому або мало сил</div><div class="opts"><button type="button" onclick="pick('phq',3,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',3,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',3,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',3,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
-<div class="q"><div class="q-txt"><span class="qn">05</span>У Вас був поганий апетит, або Ви переїдали</div><div class="opts"><button type="button" onclick="pick('phq',4,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',4,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',4,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',4,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
-<div class="q"><div class="q-txt"><span class="qn">06</span>Ви погано про себе думали — або Ви почувалися невдахою, або ж розчаровувались у собі, або думали, що підвели родину</div><div class="opts"><button type="button" onclick="pick('phq',5,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',5,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',5,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',5,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
-<div class="q"><div class="q-txt"><span class="qn">07</span>Вам було важко зосередитись, наприклад, на читанні газети або перегляді телепередач</div><div class="opts"><button type="button" onclick="pick('phq',6,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',6,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',6,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',6,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
-<div class="q"><div class="q-txt"><span class="qn">08</span>Ви рухались або розмовляли настільки повільно, що інші люди могли б це помітити? Або ж навпаки, Ви були настільки метушливі або неспокійні, що пересувались набагато більше, ніж зазвичай</div><div class="opts"><button type="button" onclick="pick('phq',7,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',7,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',7,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',7,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
-<div class="q"><div class="q-txt"><span class="qn">09</span>У Вас були думки, що Вам краще б померти, або Ви думали про те, щоб заподіяти собі яку-небудь шкоду</div><div class="opts"><button type="button" onclick="pick('phq',8,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',8,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',8,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',8,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
+    <div class="q"><div class="q-txt"><span class="qn">01</span>Зниження інтересу чи відчуття задоволення від виконання справ</div><div class="opts"><button type="button" onclick="pick('phq',0,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',0,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',0,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',0,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
+<div class="q"><div class="q-txt"><span class="qn">02</span>Поганий настрій, відчуття пригнічення чи безнадії</div><div class="opts"><button type="button" onclick="pick('phq',1,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',1,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',1,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',1,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
+<div class="q"><div class="q-txt"><span class="qn">03</span>Труднощі з засинанням, поверхневий сон або, навпаки, надмірна сонливість</div><div class="opts"><button type="button" onclick="pick('phq',2,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',2,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',2,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',2,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
+<div class="q"><div class="q-txt"><span class="qn">04</span>Відчуття втоми або зниження енергії</div><div class="opts"><button type="button" onclick="pick('phq',3,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',3,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',3,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',3,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
+<div class="q"><div class="q-txt"><span class="qn">05</span>Поганий апетит або переїдання</div><div class="opts"><button type="button" onclick="pick('phq',4,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',4,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',4,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',4,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
+<div class="q"><div class="q-txt"><span class="qn">06</span>Негативне відчуття щодо себе — що ви невдаха або, що ви підвели себе чи свою родину</div><div class="opts"><button type="button" onclick="pick('phq',5,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',5,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',5,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',5,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
+<div class="q"><div class="q-txt"><span class="qn">07</span>Труднощі з концентрацією уваги, наприклад, під час читання газети чи перегляду телевізора</div><div class="opts"><button type="button" onclick="pick('phq',6,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',6,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',6,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',6,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
+<div class="q"><div class="q-txt"><span class="qn">08</span>Сповільненість рухів та мовлення, помітна навіть для оточуючих. Або навпаки, надмірна і непритаманна вам метушливість та активність</div><div class="opts"><button type="button" onclick="pick('phq',7,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',7,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',7,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',7,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
+<div class="q"><div class="q-txt"><span class="qn">09</span>Думки, що було б краще, якби ви померли, або думки про те, щоб заподіяти собі шкоду</div><div class="opts"><button type="button" onclick="pick('phq',8,0,this)"><span class="opt-n">0</span><span class="opt-l">Зовсім не турбували</span></button><button type="button" onclick="pick('phq',8,1,this)"><span class="opt-n">1</span><span class="opt-l">Декілька днів</span></button><button type="button" onclick="pick('phq',8,2,this)"><span class="opt-n">2</span><span class="opt-l">Більш половини всіх днів</span></button><button type="button" onclick="pick('phq',8,3,this)"><span class="opt-n">3</span><span class="opt-l">Майже щоденно</span></button></div></div>
     <div class="res" id="res-phq">
       <div class="res-num" id="num-phq">0<span> з 27</span></div>
       <div class="res-band" id="band-phq"></div>
@@ -246,6 +257,29 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
     <div class="note" style="margin-top:26px;"><strong>Правила безпеки.</strong> Зупиніть вправу, якщо відчули запаморочення, дискомфорт або погіршення самопочуття. Не виконуйте її за наявності захворювань органів дихання чи серцево-судинної системи без консультації з лікарем.</div>
   </div>
 
+  <!-- EMDR / Bilateral stimulation -->
+  <div class="panel" id="p-emdr">
+    <div class="note">Метод десенсибілізації та переробки травматичного досвіду рухами очей. Розроблений Френсін Шапіро у 1987 році. Для дорослих із ПТСР настанова NICE (NG116) розглядає EMDR поряд із травма-орієнтованою КПТ як варіант терапії першої лінії.</div>
+    <div class="about-box">
+      <h3>Як застосовувати</h3>
+      <ol style="margin:0 0 0 18px;"><li style="margin-bottom:8px;">Пригадайте стресову подію та утримуйте її в фокусі уваги</li><li style="margin-bottom:8px;">Сядьте зручно, точка руху — на рівні очей, на відстані витягнутої руки</li><li style="margin-bottom:8px;">Натисніть «Старт» і плавно стежте очима за точкою, голова нерухома</li><li style="margin-bottom:8px;">Один цикл — рух вправо і вліво. Орієнтир — 10–12 циклів за підхід</li><li style="margin-bottom:8px;">Загальна тривалість підходу — 2–5 хвилин</li><li style="margin-bottom:8px;">Після завершення відзначте, як змінився стан</li></ol>
+    </div>
+    <div class="emdr-wrap">
+      <div class="emdr-stage"><div class="emdr-dot" id="emdr-dot"></div></div>
+      <div class="emdr-stats">
+        <div class="emdr-stat"><span class="es-n" id="emdr-cyc">0</span><span class="es-l">Циклів</span></div>
+        <div class="emdr-stat"><span class="es-n" id="emdr-time">0:00</span><span class="es-l">Час сесії</span></div>
+      </div>
+      <div class="emdr-speed">
+        <span>Швидкість</span>
+        <input type="range" id="emdr-range" min="1" max="5" value="3" oninput="emdrSpeedChange(this.value)">
+      </div>
+      <button class="bx-btn" id="emdr-btn" onclick="toggleEmdr()">Старт</button>
+    </div>
+    <div class="note" style="margin-top:26px;"><strong>Важливо.</strong> Цей інструмент — для самодопомоги та зниження гострого стресу, він не є повноцінною терапією ЕМДР. Глибока переробка травматичного досвіду проводиться лише навченим терапевтом у супроводжуваному форматі.</div>
+    <div class="note" style="margin-top:14px;"><strong>Протипоказання.</strong> Не використовуйте вправу під час гострого психотичного епізоду або за наявності епілепсії. За сумнівів — проконсультуйтеся з лікарем.</div>
+  </div>
+
   <div class="src"><b>Джерело опитувальників</b>PHQ-9 і GAD-7 розроблені д-ром Robert L. Spitzer, д-ром Janet B.W. Williams, д-ром Kurt Kroenke та колегами за освітнім грантом Pfizer Inc. Перебувають у вільному доступі: дозвіл на відтворення, переклад і поширення не потрібен. Офіційне джерело — phqscreeners.com.</div>
 </div>
 
@@ -257,12 +291,12 @@ var CRISIS='<div class="crisis"><h4>Якщо думки про самоушко�
 function ev(n,p){try{if(window.gtag)gtag('event',n,p||{});}catch(e){}}
 
 function openTool(k){
-  ['phq','gad','bx'].forEach(function(x){
+  ['phq','gad','bx','emdr'].forEach(function(x){
     document.getElementById('p-'+x).classList.toggle('on', x===k);
-    document.getElementById('c-'+({phq:'phq',gad:'gad',bx:'bx'})[x]).classList.toggle('on', x===k);
+    document.getElementById('c-'+x).classList.toggle('on', x===k);
   });
   document.getElementById('p-'+k).scrollIntoView({behavior:'smooth',block:'start'});
-  ev(k==='bx'?'breathing_open':'test_start',{tool:k,page_lang:document.documentElement.lang});
+  ev(k==='bx'?'breathing_open':(k==='emdr'?'emdr_open':'test_start'),{tool:k,page_lang:document.documentElement.lang});
 }
 
 function pick(t,qi,val,btn){
@@ -337,6 +371,40 @@ function stopBx(manual){
   var b=document.getElementById('bx-btn');b.textContent='Розпочати';b.classList.remove('stop');
   document.getElementById('bx-count').textContent='';
   if(manual){document.getElementById('bx-phase').textContent='—';document.getElementById('bx-cyc').textContent='Цикл 0 / 4';document.getElementById('bx-dot').style.transform='translate(0,0)';}
+}
+
+/* EMDR bilateral stimulation — requestAnimationFrame */
+var emdrOn=false,emdrRaf=null,emdrStart=0,emdrElapsed=0,emdrCyc=0,emdrDir=1,emdrSpeed=3;
+var EMDR_W=null,EMDR_PERIOD=[0,3600,2800,2000,1300,800]; // ms за один проход (индекс = speed)
+function emdrSpeedChange(v){emdrSpeed=parseInt(v,10);}
+function emdrWidth(){
+  var stage=document.querySelector('.emdr-stage');
+  return stage?stage.clientWidth-38:380;
+}
+function toggleEmdr(){emdrOn?stopEmdr():startEmdr();}
+function startEmdr(){
+  emdrOn=true;emdrStart=performance.now()-emdrElapsed;emdrDir=1;
+  var b=document.getElementById('emdr-btn');b.textContent='Пауза';b.classList.add('stop');
+  ev('emdr_start',{page_lang:document.documentElement.lang});
+  emdrRaf=requestAnimationFrame(emdrTick);
+}
+function stopEmdr(){
+  emdrOn=false;cancelAnimationFrame(emdrRaf);
+  var b=document.getElementById('emdr-btn');b.textContent='Старт';b.classList.remove('stop');
+}
+function emdrTick(now){
+  if(!emdrOn)return;
+  emdrElapsed=now-emdrStart;
+  var period=EMDR_PERIOD[emdrSpeed];
+  var w=emdrWidth();
+  var t=(emdrElapsed%period)/period; // 0..1
+  var cycleNow=Math.floor(emdrElapsed/period);
+  if(cycleNow>emdrCyc){emdrCyc=cycleNow;document.getElementById('emdr-cyc').textContent=emdrCyc;}
+  var pos = t<0.5 ? (t*2)*w : (2-t*2)*w;
+  document.getElementById('emdr-dot').style.left=(16+pos)+'px';
+  var sec=Math.floor(emdrElapsed/1000);
+  document.getElementById('emdr-time').textContent=Math.floor(sec/60)+':'+String(sec%60).padStart(2,'0');
+  emdrRaf=requestAnimationFrame(emdrTick);
 }
 </script>
 <div id="cookieBar" role="dialog" aria-label="cookie">

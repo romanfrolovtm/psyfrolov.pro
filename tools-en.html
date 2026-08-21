@@ -133,9 +133,19 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 .bx-cyc{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);opacity:.75;}
 .bx-btn{background:var(--gold);color:#0F0F12;border:none;font-family:inherit;font-weight:600;font-size:13px;letter-spacing:.5px;padding:13px 34px;border-radius:9px;cursor:pointer;transition:.2s;}
 .bx-btn.stop{background:transparent;color:var(--gold);border:1px solid rgba(201,168,76,.45);}
+.emdr-wrap{display:flex;flex-direction:column;align-items:center;padding:8px 0 4px;}
+.emdr-stage{position:relative;width:100%;max-width:420px;height:70px;margin:6px 0 22px;border:1px solid rgba(201,168,76,.22);border-radius:14px;background:rgba(201,168,76,.03);overflow:hidden;}
+.emdr-dot{position:absolute;top:50%;left:16px;width:22px;height:22px;margin-top:-11px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px rgba(201,168,76,.7);}
+.emdr-stats{display:flex;gap:34px;margin-bottom:20px;}
+.emdr-stat{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.es-n{font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--gold);line-height:1;}
+.es-l{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(245,243,238,.45);}
+.emdr-speed{display:flex;align-items:center;gap:12px;margin-bottom:22px;font-size:12px;color:rgba(245,243,238,.6);}
+.emdr-speed input[type="range"]{accent-color:var(--gold);width:140px;}
 .bx-done{display:none;margin-top:16px;font-size:14px;color:var(--gold);text-align:center;}
 .bx-done.on{display:block;animation:fade .4s ease;}
-@media(min-width:620px){.tool-grid{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:620px){.tool-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:900px){.tool-grid{grid-template-columns:repeat(4,1fr);}}
 
 .about-box{margin:0 0 26px;padding:24px 26px;border:1px solid rgba(201,168,76,.18);border-radius:14px;background:rgba(201,168,76,.035);}
 .about-box h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:21px;color:var(--gold);margin:0 0 12px;font-weight:600;}
@@ -167,6 +177,7 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
     <button class="tool-card" id="c-phq" onclick="openTool('phq')"><div class="tc-name">PHQ-9</div><div class="tc-sub">Depression screening · 9 questions · 2 minutes</div></button>
     <button class="tool-card" id="c-gad" onclick="openTool('gad')"><div class="tc-name">GAD-7</div><div class="tc-sub">Anxiety screening · 7 questions · 2 minutes</div></button>
     <button class="tool-card" id="c-bx" onclick="openTool('bx')"><div class="tc-name">Box breathing</div><div class="tc-sub">Self-regulation exercise · 4 cycles</div></button>
+    <button class="tool-card" id="c-emdr" onclick="openTool('emdr')"><div class="tc-name">Bilateral stimulation</div><div class="tc-sub">EMDR · 10–12 cycles</div></button>
   </div>
 
   <!-- PHQ-9 -->
@@ -246,6 +257,29 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
     <div class="note" style="margin-top:26px;"><strong>Safety notes.</strong> Stop the exercise if you feel dizzy, uncomfortable or unwell. Do not perform it if you have respiratory or cardiovascular conditions without consulting a doctor first.</div>
   </div>
 
+  <!-- EMDR / Bilateral stimulation -->
+  <div class="panel" id="p-emdr">
+    <div class="note">A method for desensitising and reprocessing traumatic experiences through eye movements. Developed by Francine Shapiro in 1987. For adults with PTSD, the NICE guideline (NG116) lists EMDR alongside trauma-focused CBT as a first-line treatment option.</div>
+    <div class="about-box">
+      <h3>How to use it</h3>
+      <ol style="margin:0 0 0 18px;"><li style="margin-bottom:8px;">Recall a stressful event and keep it in focus</li><li style="margin-bottom:8px;">Sit comfortably, the moving point at eye level, an arm's length away</li><li style="margin-bottom:8px;">Press "Start" and follow the point smoothly with your eyes, keeping your head still</li><li style="margin-bottom:8px;">One cycle is a movement right and left. Aim for 10–12 cycles per session</li><li style="margin-bottom:8px;">Total session length: 2–5 minutes</li><li style="margin-bottom:8px;">Afterwards, notice how your state has changed</li></ol>
+    </div>
+    <div class="emdr-wrap">
+      <div class="emdr-stage"><div class="emdr-dot" id="emdr-dot"></div></div>
+      <div class="emdr-stats">
+        <div class="emdr-stat"><span class="es-n" id="emdr-cyc">0</span><span class="es-l">Cycles</span></div>
+        <div class="emdr-stat"><span class="es-n" id="emdr-time">0:00</span><span class="es-l">Session time</span></div>
+      </div>
+      <div class="emdr-speed">
+        <span>Speed</span>
+        <input type="range" id="emdr-range" min="1" max="5" value="3" oninput="emdrSpeedChange(this.value)">
+      </div>
+      <button class="bx-btn" id="emdr-btn" onclick="toggleEmdr()">Start</button>
+    </div>
+    <div class="note" style="margin-top:26px;"><strong>Important.</strong> This tool is for self-help and reducing acute stress — it is not full EMDR therapy. Deep reprocessing of traumatic experience should only be done with a trained therapist in a supervised setting.</div>
+    <div class="note" style="margin-top:14px;"><strong>Contraindications.</strong> Do not use during an acute psychotic episode or if you have epilepsy. If in doubt, consult a doctor.</div>
+  </div>
+
   <div class="src"><b>Source of the questionnaires</b>The PHQ-9 and GAD-7 were developed by Dr Robert L. Spitzer, Dr Janet B.W. Williams, Dr Kurt Kroenke and colleagues, with an educational grant from Pfizer Inc. They are in the public domain: no permission is required to reproduce, translate or distribute them. Official source — phqscreeners.com.</div>
 </div>
 
@@ -257,12 +291,12 @@ var CRISIS='<div class="crisis"><h4>If you are having thoughts of harming yourse
 function ev(n,p){try{if(window.gtag)gtag('event',n,p||{});}catch(e){}}
 
 function openTool(k){
-  ['phq','gad','bx'].forEach(function(x){
+  ['phq','gad','bx','emdr'].forEach(function(x){
     document.getElementById('p-'+x).classList.toggle('on', x===k);
-    document.getElementById('c-'+({phq:'phq',gad:'gad',bx:'bx'})[x]).classList.toggle('on', x===k);
+    document.getElementById('c-'+x).classList.toggle('on', x===k);
   });
   document.getElementById('p-'+k).scrollIntoView({behavior:'smooth',block:'start'});
-  ev(k==='bx'?'breathing_open':'test_start',{tool:k,page_lang:document.documentElement.lang});
+  ev(k==='bx'?'breathing_open':(k==='emdr'?'emdr_open':'test_start'),{tool:k,page_lang:document.documentElement.lang});
 }
 
 function pick(t,qi,val,btn){
@@ -337,6 +371,40 @@ function stopBx(manual){
   var b=document.getElementById('bx-btn');b.textContent='Start';b.classList.remove('stop');
   document.getElementById('bx-count').textContent='';
   if(manual){document.getElementById('bx-phase').textContent='—';document.getElementById('bx-cyc').textContent='Cycle 0 / 4';document.getElementById('bx-dot').style.transform='translate(0,0)';}
+}
+
+/* EMDR bilateral stimulation — requestAnimationFrame */
+var emdrOn=false,emdrRaf=null,emdrStart=0,emdrElapsed=0,emdrCyc=0,emdrDir=1,emdrSpeed=3;
+var EMDR_W=null,EMDR_PERIOD=[0,3600,2800,2000,1300,800]; // ms за один проход (индекс = speed)
+function emdrSpeedChange(v){emdrSpeed=parseInt(v,10);}
+function emdrWidth(){
+  var stage=document.querySelector('.emdr-stage');
+  return stage?stage.clientWidth-38:380;
+}
+function toggleEmdr(){emdrOn?stopEmdr():startEmdr();}
+function startEmdr(){
+  emdrOn=true;emdrStart=performance.now()-emdrElapsed;emdrDir=1;
+  var b=document.getElementById('emdr-btn');b.textContent='Pause';b.classList.add('stop');
+  ev('emdr_start',{page_lang:document.documentElement.lang});
+  emdrRaf=requestAnimationFrame(emdrTick);
+}
+function stopEmdr(){
+  emdrOn=false;cancelAnimationFrame(emdrRaf);
+  var b=document.getElementById('emdr-btn');b.textContent='Start';b.classList.remove('stop');
+}
+function emdrTick(now){
+  if(!emdrOn)return;
+  emdrElapsed=now-emdrStart;
+  var period=EMDR_PERIOD[emdrSpeed];
+  var w=emdrWidth();
+  var t=(emdrElapsed%period)/period; // 0..1
+  var cycleNow=Math.floor(emdrElapsed/period);
+  if(cycleNow>emdrCyc){emdrCyc=cycleNow;document.getElementById('emdr-cyc').textContent=emdrCyc;}
+  var pos = t<0.5 ? (t*2)*w : (2-t*2)*w;
+  document.getElementById('emdr-dot').style.left=(16+pos)+'px';
+  var sec=Math.floor(emdrElapsed/1000);
+  document.getElementById('emdr-time').textContent=Math.floor(sec/60)+':'+String(sec%60).padStart(2,'0');
+  emdrRaf=requestAnimationFrame(emdrTick);
 }
 </script>
 <div id="cookieBar" role="dialog" aria-label="cookie">
