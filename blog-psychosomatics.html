@@ -41,9 +41,9 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',-apple-sys
 .nav .nav-items a:hover,.nav .nav-items a.active{color:var(--gold);}
 .nav .nav-items a.cta{color:var(--gold);border:1px solid rgba(201,168,76,.4);padding:6px 14px;border-radius:7px;}
 .nav-lang{display:flex;gap:6px;margin-left:8px;padding-left:16px;border-left:1px solid rgba(201,168,76,.2);}
-.nav-lang a{font-size:10.5px;font-weight:600;letter-spacing:.5px;color:rgba(245,243,238,.45);text-decoration:none;padding:4px 7px;border-radius:5px;transition:.2s;}
+.nav-lang a{font-size:10.5px;font-weight:600;letter-spacing:.5px;color:rgba(245,243,238,.45);text-decoration:none;padding:4px 8px;border-radius:5px;border:1px solid transparent;transition:.2s;}
 .nav-lang a:hover{color:var(--white);}
-.nav-lang a.active{color:#0F0F12;background:var(--gold);}
+.nav-lang a.active{color:var(--gold);border-color:var(--gold);background:rgba(201,168,76,.12);font-weight:700;}
 .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .eyebrow a{color:var(--gold);text-decoration:none;opacity:.7;}
 h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:38px;font-weight:600;color:var(--white);margin-bottom:14px;line-height:1.18;}
@@ -84,8 +84,6 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 "author":{"@type":"Person","name":"Roman Frolov","url":"https://psyfrolov.pro/"},
 "datePublished":"2026-08-01","inLanguage":"en","mainEntityOfPage":"https://psyfrolov.pro/blog-psychosomatics.html"}
 </script>
-
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does psychosomatics mean the symptom is \"imaginary\"?", "acceptedAnswer": {"@type": "Answer", "text": "No. Bodily manifestations of stress are physiologically quite real — muscle tension, hormone levels and digestive function all change. \"Psycho-\" points to part of the cause, not the absence of a symptom."}}, {"@type": "Question", "name": "Where to start — with a doctor or a psychologist?", "acceptedAnswer": {"@type": "Answer", "text": "Ruling out an organic cause with a doctor always comes first. Parallel or follow-up psychological work helps in cases where medical tests find no pathology yet symptoms persist."}}]}</script>
 </head>
 <body>
 <div class="wrap">
@@ -128,8 +126,6 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
   <p>A practical first step is to keep a brief record of bodily symptoms alongside the events of the day: when pain or tension appeared, what happened the day before, what the subjective stress level was. After a few weeks, such a record often reveals a pattern invisible in the moment — for example, a headache every Tuesday before a meeting, or sleep problems the night before difficult conversations. This does not replace a medical check-up, but it provides useful material to discuss with both a doctor and a psychologist.</p>
   <h2>Questions people often ask</h2>
   <p><strong>Does psychosomatics mean the symptom is "imaginary"?</strong> No. Bodily manifestations of stress are physiologically quite real — muscle tension, hormone levels and digestive function all change. "Psycho-" points to part of the cause, not the absence of a symptom.</p><p><strong>Where to start — with a doctor or a psychologist?</strong> Ruling out an organic cause with a doctor always comes first. Parallel or follow-up psychological work helps in cases where medical tests find no pathology yet symptoms persist.</p>
-  
-  <div class="readalso js-readalso" style="margin:32px 0;padding:18px 20px;border:1px solid rgba(0,0,0,.08);border-radius:10px;"><div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Read also</div><ul style="margin:0;padding-left:18px;line-height:1.8;"><li><a href="/blog-toxic-relationships.html">Toxic Relationships: How to Recognise and Leave Them</a></li><li><a href="/blog-what-is-cbt.html">What Is CBT and Why It Works: The Scientific Basis of the Method</a></li></ul></div>
   <div class="refs">
     <div class="refs-title">References</div>
     <ol><li>American Psychological Association (APA) — apa.org</li>
@@ -156,31 +152,35 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 </div>
 <script>
 (function(){
-  var ID='G-4HH7VMJ948';
-  window.dataLayer=window.dataLayer||[];
-  function gtag(){dataLayer.push(arguments);} window.gtag=gtag;
-  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
-  gtag('js',new Date());
-  gtag('config',ID,{anonymize_ip:true,send_page_view:true});
-  var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);
   try{
     var c=localStorage.getItem('cookieConsent');
-    if(c==='accept'){gtag('consent','update',{analytics_storage:'granted'});}
-    else if(!c){var b=document.getElementById('cookieBar');if(b){setTimeout(function(){b.classList.add('show');},800);}}
+    if(!c){var b=document.getElementById('cookieBar');if(b){setTimeout(function(){b.classList.add('show');},800);}}
+    else if(c==='accept'){loadAnalytics();}
   }catch(e){}
-  document.addEventListener('click',function(e){
-    var a=e.target&&e.target.closest?e.target.closest('a'):null; if(!a)return;
-    var h=a.getAttribute('href')||'', L=document.documentElement.lang||'';
-    var T=(a.textContent||'').trim().slice(0,50);
-    if(a.classList.contains('lang-btn')||(a.closest&&a.closest('.nav-lang'))) gtag('event','lang_switch',{link_text:T,page_lang:L});
-    else if(h.indexOf('t.me/')>-1) gtag('event','book_click',{link_text:T,page_lang:L});
-    else if(h.indexOf('mindlyspace.com')>-1) gtag('event','mindly_click',{link_text:T,page_lang:L});
-  },true);
 })();
 function cookieChoice(ok){
   try{localStorage.setItem('cookieConsent',ok?'accept':'decline');}catch(e){}
   var b=document.getElementById('cookieBar');if(b){b.classList.remove('show');}
-  if(ok&&window.gtag){gtag('consent','update',{analytics_storage:'granted'});}
+  if(ok){loadAnalytics();}
+}
+function loadAnalytics(){
+  if(window.__gaInit)return; window.__gaInit=1;
+  var ID='G-4HH7VMJ948';
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){dataLayer.push(arguments);};
+  gtag('js',new Date());
+  gtag('config',ID,{anonymize_ip:true,send_page_view:true});
+  var s=document.createElement('script');
+  s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+ID;
+  document.head.appendChild(s);
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null; if(!a)return;
+    var h=a.getAttribute('href')||'', L=document.documentElement.lang||'';
+    var T=(a.textContent||'').trim().slice(0,50);
+    if(a.classList.contains('lang-btn')) gtag('event','lang_switch',{link_text:T,page_lang:L});
+    else if(h.indexOf('t.me/')>-1) gtag('event','book_click',{link_text:T,page_lang:L});
+    else if(h.indexOf('mindlyspace.com')>-1) gtag('event','mindly_click',{link_text:T,page_lang:L});
+  },true);
 }
 </script>
 </body>

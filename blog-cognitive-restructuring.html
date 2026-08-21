@@ -41,9 +41,9 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',-apple-sys
 .nav .nav-items a:hover,.nav .nav-items a.active{color:var(--gold);}
 .nav .nav-items a.cta{color:var(--gold);border:1px solid rgba(201,168,76,.4);padding:6px 14px;border-radius:7px;}
 .nav-lang{display:flex;gap:6px;margin-left:8px;padding-left:16px;border-left:1px solid rgba(201,168,76,.2);}
-.nav-lang a{font-size:10.5px;font-weight:600;letter-spacing:.5px;color:rgba(245,243,238,.45);text-decoration:none;padding:4px 7px;border-radius:5px;transition:.2s;}
+.nav-lang a{font-size:10.5px;font-weight:600;letter-spacing:.5px;color:rgba(245,243,238,.45);text-decoration:none;padding:4px 8px;border-radius:5px;border:1px solid transparent;transition:.2s;}
 .nav-lang a:hover{color:var(--white);}
-.nav-lang a.active{color:#0F0F12;background:var(--gold);}
+.nav-lang a.active{color:var(--gold);border-color:var(--gold);background:rgba(201,168,76,.12);font-weight:700;}
 .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .eyebrow a{color:var(--gold);text-decoration:none;opacity:.7;}
 h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:38px;font-weight:600;color:var(--white);margin-bottom:14px;line-height:1.18;}
@@ -84,8 +84,6 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 "author":{"@type":"Person","name":"Roman Frolov","url":"https://psyfrolov.pro/"},
 "datePublished":"2026-08-01","inLanguage":"en","mainEntityOfPage":"https://psyfrolov.pro/blog-cognitive-restructuring.html"}
 </script>
-
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does this just mean \"thinking positively\"?", "acceptedAnswer": {"@type": "Answer", "text": "No, and that is the key distinction. The goal is not to deny real difficulties, but to check whether a thought about them is accurate or distorted."}}, {"@type": "Question", "name": "How long does it take to see results?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the specific issue, but the skill of noticing automatic thoughts usually develops within a few weeks of regular practice."}}]}</script>
 </head>
 <body>
 <div class="wrap">
@@ -122,8 +120,6 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
   <p>You can try an element of cognitive restructuring on your own, as a self-observation exercise (not as a replacement for therapy in serious conditions). When a strong emotional reaction appears, it helps to pause and write down: what thought arose right before that feeling, how automatic or conscious it was, what facts support it, and what facts contradict it. Regular practice of this kind of writing gradually trains the ability to notice your own thinking patterns before they have a chance to affect your mood.</p>
   <h2>Questions people often ask</h2>
   <p><strong>Does this just mean "thinking positively"?</strong> No, and that is the key distinction. The goal is not to deny real difficulties, but to check whether a thought about them is accurate or distorted.</p><p><strong>How long does it take to see results?</strong> It depends on the specific issue, but the skill of noticing automatic thoughts usually develops within a few weeks of regular practice.</p>
-  
-  <div class="readalso js-readalso" style="margin:32px 0;padding:18px 20px;border:1px solid rgba(0,0,0,.08);border-radius:10px;"><div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Read also</div><ul style="margin:0;padding-left:18px;line-height:1.8;"><li><a href="/blog-depression-evidence-based-view.html">Depression: A Modern Evidence-Based View and Approach to Care</a></li><li><a href="/blog-divorce-support.html">Divorce: Psychological Support for a Dignified Ending</a></li></ul></div>
   <div class="refs">
     <div class="refs-title">References</div>
     <ol><li>Beck Institute for Cognitive Behavior Therapy — beckinstitute.org</li>
@@ -150,31 +146,35 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 </div>
 <script>
 (function(){
-  var ID='G-4HH7VMJ948';
-  window.dataLayer=window.dataLayer||[];
-  function gtag(){dataLayer.push(arguments);} window.gtag=gtag;
-  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
-  gtag('js',new Date());
-  gtag('config',ID,{anonymize_ip:true,send_page_view:true});
-  var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);
   try{
     var c=localStorage.getItem('cookieConsent');
-    if(c==='accept'){gtag('consent','update',{analytics_storage:'granted'});}
-    else if(!c){var b=document.getElementById('cookieBar');if(b){setTimeout(function(){b.classList.add('show');},800);}}
+    if(!c){var b=document.getElementById('cookieBar');if(b){setTimeout(function(){b.classList.add('show');},800);}}
+    else if(c==='accept'){loadAnalytics();}
   }catch(e){}
-  document.addEventListener('click',function(e){
-    var a=e.target&&e.target.closest?e.target.closest('a'):null; if(!a)return;
-    var h=a.getAttribute('href')||'', L=document.documentElement.lang||'';
-    var T=(a.textContent||'').trim().slice(0,50);
-    if(a.classList.contains('lang-btn')||(a.closest&&a.closest('.nav-lang'))) gtag('event','lang_switch',{link_text:T,page_lang:L});
-    else if(h.indexOf('t.me/')>-1) gtag('event','book_click',{link_text:T,page_lang:L});
-    else if(h.indexOf('mindlyspace.com')>-1) gtag('event','mindly_click',{link_text:T,page_lang:L});
-  },true);
 })();
 function cookieChoice(ok){
   try{localStorage.setItem('cookieConsent',ok?'accept':'decline');}catch(e){}
   var b=document.getElementById('cookieBar');if(b){b.classList.remove('show');}
-  if(ok&&window.gtag){gtag('consent','update',{analytics_storage:'granted'});}
+  if(ok){loadAnalytics();}
+}
+function loadAnalytics(){
+  if(window.__gaInit)return; window.__gaInit=1;
+  var ID='G-4HH7VMJ948';
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){dataLayer.push(arguments);};
+  gtag('js',new Date());
+  gtag('config',ID,{anonymize_ip:true,send_page_view:true});
+  var s=document.createElement('script');
+  s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+ID;
+  document.head.appendChild(s);
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null; if(!a)return;
+    var h=a.getAttribute('href')||'', L=document.documentElement.lang||'';
+    var T=(a.textContent||'').trim().slice(0,50);
+    if(a.classList.contains('lang-btn')) gtag('event','lang_switch',{link_text:T,page_lang:L});
+    else if(h.indexOf('t.me/')>-1) gtag('event','book_click',{link_text:T,page_lang:L});
+    else if(h.indexOf('mindlyspace.com')>-1) gtag('event','mindly_click',{link_text:T,page_lang:L});
+  },true);
 }
 </script>
 </body>

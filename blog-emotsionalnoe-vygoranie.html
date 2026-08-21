@@ -41,9 +41,9 @@ body{background:var(--bg);color:var(--white);font-family:'Montserrat',-apple-sys
 .nav .nav-items a:hover,.nav .nav-items a.active{color:var(--gold);}
 .nav .nav-items a.cta{color:var(--gold);border:1px solid rgba(201,168,76,.4);padding:6px 14px;border-radius:7px;}
 .nav-lang{display:flex;gap:6px;margin-left:8px;padding-left:16px;border-left:1px solid rgba(201,168,76,.2);}
-.nav-lang a{font-size:10.5px;font-weight:600;letter-spacing:.5px;color:rgba(245,243,238,.45);text-decoration:none;padding:4px 7px;border-radius:5px;transition:.2s;}
+.nav-lang a{font-size:10.5px;font-weight:600;letter-spacing:.5px;color:rgba(245,243,238,.45);text-decoration:none;padding:4px 8px;border-radius:5px;border:1px solid transparent;transition:.2s;}
 .nav-lang a:hover{color:var(--white);}
-.nav-lang a.active{color:#0F0F12;background:var(--gold);}
+.nav-lang a.active{color:var(--gold);border-color:var(--gold);background:rgba(201,168,76,.12);font-weight:700;}
 .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .eyebrow a{color:var(--gold);text-decoration:none;opacity:.7;}
 h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:38px;font-weight:600;color:var(--white);margin-bottom:14px;line-height:1.18;}
@@ -84,8 +84,6 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 "author":{"@type":"Person","name":"Roman Frolov","url":"https://psyfrolov.pro/"},
 "datePublished":"2026-08-01","inLanguage":"ru","mainEntityOfPage":"https://psyfrolov.pro/blog-emotsionalnoe-vygoranie.html"}
 </script>
-
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Можно ли выгореть, работая любимым делом?", "acceptedAnswer": {"@type": "Answer", "text": "Да. Увлечённость работой не защищает от выгорания — напротив, высокововлечённые люди иногда игнорируют ранние сигналы дольше остальных."}}, {"@type": "Question", "name": "Сколько времени нужно на восстановление?", "acceptedAnswer": {"@type": "Answer", "text": "Это зависит от глубины выгорания и того, насколько меняются структурные факторы (нагрузка, поддержка). Поверхностное истощение проходит быстрее хронического, накапливавшегося годами."}}]}</script>
 </head>
 <body>
 <div class="wrap">
@@ -124,8 +122,6 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
   <p>На ранних стадиях выгорания его ещё можно заметить и скорректировать без глубокого кризиса. Полезно периодически (например, раз в неделю) честно отвечать себе на три вопроса: испытываю ли я истощение, которое не проходит после отдыха; растёт ли во мне цинизм или безразличие к работе; чувствую ли я, что моя эффективность падает, несмотря на старания. Положительный ответ на два и более пункта — сигнал, что стоит пересмотреть нагрузку и ресурсы поддержки, не дожидаясь острого состояния.</p>
   <h2>Вопросы, которые часто возникают</h2>
   <p><strong>Можно ли выгореть, работая любимым делом?</strong> Да. Увлечённость работой не защищает от выгорания — напротив, высокововлечённые люди иногда игнорируют ранние сигналы дольше остальных.</p><p><strong>Сколько времени нужно на восстановление?</strong> Это зависит от глубины выгорания и того, насколько меняются структурные факторы (нагрузка, поддержка). Поверхностное истощение проходит быстрее хронического, накапливавшегося годами.</p>
-  
-  <div class="readalso js-readalso" style="margin:32px 0;padding:18px 20px;border:1px solid rgba(0,0,0,.08);border-radius:10px;"><div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Читайте также</div><ul style="margin:0;padding-left:18px;line-height:1.8;"><li><a href="/blog-kak-prohodit-terapiya.html">Как проходит психотерапия: от первой встречи до результата</a></li><li><a href="/blog-kak-vybrat-psihologa.html">Как выбрать психолога: на что обращать внимание</a></li></ul></div>
   <div class="refs">
     <div class="refs-title">Источники</div>
     <ol><li>World Health Organization (WHO). Burn-out an "occupational phenomenon": International Classification of Diseases. ICD-11, QD85 (2019). who.int</li>
@@ -152,31 +148,35 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 </div>
 <script>
 (function(){
-  var ID='G-4HH7VMJ948';
-  window.dataLayer=window.dataLayer||[];
-  function gtag(){dataLayer.push(arguments);} window.gtag=gtag;
-  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
-  gtag('js',new Date());
-  gtag('config',ID,{anonymize_ip:true,send_page_view:true});
-  var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);
   try{
     var c=localStorage.getItem('cookieConsent');
-    if(c==='accept'){gtag('consent','update',{analytics_storage:'granted'});}
-    else if(!c){var b=document.getElementById('cookieBar');if(b){setTimeout(function(){b.classList.add('show');},800);}}
+    if(!c){var b=document.getElementById('cookieBar');if(b){setTimeout(function(){b.classList.add('show');},800);}}
+    else if(c==='accept'){loadAnalytics();}
   }catch(e){}
-  document.addEventListener('click',function(e){
-    var a=e.target&&e.target.closest?e.target.closest('a'):null; if(!a)return;
-    var h=a.getAttribute('href')||'', L=document.documentElement.lang||'';
-    var T=(a.textContent||'').trim().slice(0,50);
-    if(a.classList.contains('lang-btn')||(a.closest&&a.closest('.nav-lang'))) gtag('event','lang_switch',{link_text:T,page_lang:L});
-    else if(h.indexOf('t.me/')>-1) gtag('event','book_click',{link_text:T,page_lang:L});
-    else if(h.indexOf('mindlyspace.com')>-1) gtag('event','mindly_click',{link_text:T,page_lang:L});
-  },true);
 })();
 function cookieChoice(ok){
   try{localStorage.setItem('cookieConsent',ok?'accept':'decline');}catch(e){}
   var b=document.getElementById('cookieBar');if(b){b.classList.remove('show');}
-  if(ok&&window.gtag){gtag('consent','update',{analytics_storage:'granted'});}
+  if(ok){loadAnalytics();}
+}
+function loadAnalytics(){
+  if(window.__gaInit)return; window.__gaInit=1;
+  var ID='G-4HH7VMJ948';
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){dataLayer.push(arguments);};
+  gtag('js',new Date());
+  gtag('config',ID,{anonymize_ip:true,send_page_view:true});
+  var s=document.createElement('script');
+  s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+ID;
+  document.head.appendChild(s);
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null; if(!a)return;
+    var h=a.getAttribute('href')||'', L=document.documentElement.lang||'';
+    var T=(a.textContent||'').trim().slice(0,50);
+    if(a.classList.contains('lang-btn')) gtag('event','lang_switch',{link_text:T,page_lang:L});
+    else if(h.indexOf('t.me/')>-1) gtag('event','book_click',{link_text:T,page_lang:L});
+    else if(h.indexOf('mindlyspace.com')>-1) gtag('event','mindly_click',{link_text:T,page_lang:L});
+  },true);
 }
 </script>
 </body>
