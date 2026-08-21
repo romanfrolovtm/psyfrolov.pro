@@ -633,7 +633,7 @@ section[id]{scroll-margin-top:94px;}
 .mnav.open{opacity:1;pointer-events:auto;}
 .mnav a{color:var(--white);text-decoration:none;font-family:'Cormorant Garamond',serif;font-size:30px;letter-spacing:.5px;}
 .mnav a.active,.mnav a:hover{color:var(--gold);}
-@media(max-width:1300px){.nav-links{display:none;}.nav-burger{display:flex;}}
+@media(max-width:1477px){.nav-links{display:none;}.nav-burger{display:flex;}}
 section{scroll-margin-top:84px;}
 
 /* ===== FAQ ===== */
@@ -667,7 +667,7 @@ section{scroll-margin-top:84px;}
 .nav-links li{flex-shrink:0;}
 .lang-sw{flex-shrink:0;}
 @media(max-width:1400px){nav{padding:20px 32px;}}
-@media(max-width:1300px){.nav-links{gap:10px!important;} .nav-links a{font-size:10px!important;letter-spacing:.5px!important;}}
+@media(max-width:1477px){.nav-links{gap:10px!important;} .nav-links a{font-size:10px!important;letter-spacing:.5px!important;}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Як проходить перша сесія?", "acceptedAnswer": {"@type": "Answer", "text": "Перша зустріч — знайомство та оцінка запиту: що відбувається, як давно, чого ви хочете досягти. Наприкінці — чесна відповідь, чи можу я допомогти, і план роботи."}}, {"@type": "Question", "name": "Скільки триває робота?", "acceptedAnswer": {"@type": "Answer", "text": "КПТ — короткостроковий підхід: зазвичай від кількох до 15–20 сесій залежно від запиту. Прогрес відстежується за вимірними показниками."}}, {"@type": "Question", "name": "Чи ефективний онлайн-формат?", "acceptedAnswer": {"@type": "Answer", "text": "Так, дослідження показують, що онлайн-КПТ за ефективністю можна порівняти з очною роботою. Сесія триває 45 хвилин по відеозв'язку."}}, {"@type": "Question", "name": "Скільки коштує сесія?", "acceptedAnswer": {"@type": "Answer", "text": "Індивідуальна сесія 45 хвилин — 3000 грн / 60 EUR / 70 USD / 275 PLN. Оплата через Mindly або за домовленістю у Telegram."}}, {"@type": "Question", "name": "Це конфіденційно?", "acceptedAnswer": {"@type": "Answer", "text": "Повністю конфіденційно. Зміст сесій не передається третім особам."}}, {"@type": "Question", "name": "Чим психолог відрізняється від психіатра?", "acceptedAnswer": {"@type": "Answer", "text": "Психіатр — лікар, що встановлює діагнози та призначає ліки. Психолог працює психологічними методами і не надає медичних послуг."}}, {"@type": "Question", "name": "Що, якщо мені не підійде?", "acceptedAnswer": {"@type": "Answer", "text": "Якщо після першої зустрічі ви відчуєте, що формат чи підхід вам не підходить — це нормально. Я чесно скажу, чи можу допомогти саме я, і за потреби порекомендую колегу. Ви нічого не втрачаєте."}}, {"@type": "Question", "name": "З якими запитами звертаються найчастіше?", "acceptedAnswer": {"@type": "Answer", "text": "Найчастіше це тривога, емоційне вигорання, стрес, труднощі у стосунках, низька самооцінка, безсоння, розставання та розлучення, наслідки травматичних подій і психосоматика."}}]}</script>
 </head>
@@ -1598,5 +1598,23 @@ function cookieChoice(ok){
 }
 </script>
 
+<script>
+function toggleMenu(){
+  var m=document.getElementById('mnav'), b=document.getElementById('burger');
+  if(!m||!b)return;
+  var open=m.classList.toggle('open');
+  b.classList.toggle('open',open);
+  b.setAttribute('aria-expanded',open?'true':'false');
+  document.body.style.overflow=open?'hidden':'';
+}
+document.addEventListener('click',function(e){
+  var mnav=document.getElementById('mnav');
+  if(mnav && mnav.classList.contains('open') && e.target.closest('#mnav a')){
+    mnav.classList.remove('open');
+    var b=document.getElementById('burger'); if(b){b.classList.remove('open');b.setAttribute('aria-expanded','false');}
+    document.body.style.overflow='';
+  }
+});
+</script>
 </body>
 </html>
