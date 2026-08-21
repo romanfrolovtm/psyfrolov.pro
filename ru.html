@@ -110,7 +110,7 @@ body.lang-pl .uk,body.lang-pl .ru,body.lang-pl .en,
 body.lang-ru .uk-inline,body.lang-uk .ru-inline{display:none !important;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 64px;display:flex;justify-content:space-between;align-items:center;transition:background .4s,padding .4s,border-color .4s;border-bottom:1px solid transparent;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 64px;display:flex;justify-content:space-between;align-items:center;gap:28px;transition:background .4s,padding .4s,border-color .4s;border-bottom:1px solid transparent;}
 nav.scrolled{background:rgba(9,9,11,.72);backdrop-filter:blur(16px) saturate(1.1);-webkit-backdrop-filter:blur(16px) saturate(1.1);border-bottom:1px solid rgba(201,168,76,.14);padding:16px 64px;}
 .nav-logo{text-decoration:none;display:flex;align-items:center;transition:transform .3s;}
 .nav-logo:hover{transform:scale(1.05);}
@@ -660,6 +660,14 @@ section{scroll-margin-top:84px;}
 .scta .scta-note{display:block;text-align:center;font-size:8.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--white-30);margin-top:7px;}
 @media(max-width:1024px){.scta{display:block;}}
 @media(prefers-reduced-motion:reduce){.scta{transition:none;}}
+
+.nav-logo{flex-shrink:0;}
+.nav-links{gap:clamp(14px,1.8vw,34px)!important;flex-wrap:nowrap;}
+.nav-links a{white-space:nowrap;}
+.nav-links li{flex-shrink:0;}
+.lang-sw{flex-shrink:0;}
+@media(max-width:1400px){nav{padding:20px 32px;}}
+@media(max-width:1150px){.nav-links{gap:12px!important;} .nav-links a{font-size:10.5px!important;letter-spacing:1px!important;}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Як проходить перша сесія?", "acceptedAnswer": {"@type": "Answer", "text": "Перша зустріч — знайомство та оцінка запиту: що відбувається, як давно, чого ви хочете досягти. Наприкінці — чесна відповідь, чи можу я допомогти, і план роботи."}}, {"@type": "Question", "name": "Скільки триває робота?", "acceptedAnswer": {"@type": "Answer", "text": "КПТ — короткостроковий підхід: зазвичай від кількох до 15–20 сесій залежно від запиту. Прогрес відстежується за вимірними показниками."}}, {"@type": "Question", "name": "Чи ефективний онлайн-формат?", "acceptedAnswer": {"@type": "Answer", "text": "Так, дослідження показують, що онлайн-КПТ за ефективністю можна порівняти з очною роботою. Сесія триває 45 хвилин по відеозв'язку."}}, {"@type": "Question", "name": "Скільки коштує сесія?", "acceptedAnswer": {"@type": "Answer", "text": "Індивідуальна сесія 45 хвилин — 3000 грн / 60 EUR / 70 USD / 275 PLN. Оплата через Mindly або за домовленістю у Telegram."}}, {"@type": "Question", "name": "Це конфіденційно?", "acceptedAnswer": {"@type": "Answer", "text": "Повністю конфіденційно. Зміст сесій не передається третім особам."}}, {"@type": "Question", "name": "Чим психолог відрізняється від психіатра?", "acceptedAnswer": {"@type": "Answer", "text": "Психіатр — лікар, що встановлює діагнози та призначає ліки. Психолог працює психологічними методами і не надає медичних послуг."}}, {"@type": "Question", "name": "Что, если мне не подойдёт?", "acceptedAnswer": {"@type": "Answer", "text": "Если после первой встречи вы почувствуете, что формат или подход вам не подходит — это нормально. Я честно скажу, могу ли помочь именно я, и при необходимости порекомендую коллегу. Вы ничего не теряете."}}, {"@type": "Question", "name": "С какими запросами обращаются чаще всего?", "acceptedAnswer": {"@type": "Answer", "text": "Чаще всего это тревога, эмоциональное выгорание, стресс, трудности в отношениях, низкая самооценка, бессонница, расставание и развод, последствия травматических событий и психосоматика."}}]}</script>
 </head>
@@ -872,7 +880,7 @@ section{scroll-margin-top:84px;}
       </div>
       <div class="cred" onclick="openLB(9)" role="button" tabindex="0" onkeydown="if(event.key==='Enter')openLB(9)">
         <div class="cred-icon">🏛️</div>
-        <div class="cred-t">Подяка міськради, 2006</div>
+        <div class="cred-t">Благодарность горсовета, 2006</div>
         <div class="cred-s ru">Управление командой · директор · за создание рабочих мест · Николаевский горсовет</div>
         <div class="cred-link ru">Посмотреть документ →</div>
       </div>

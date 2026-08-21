@@ -100,7 +100,7 @@ body.lang-pl .uk,body.lang-pl .ru,body.lang-pl .en,
 body.lang-ru .uk-inline,body.lang-uk .ru-inline{display:none !important;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 64px;display:flex;justify-content:space-between;align-items:center;transition:background .4s,padding .4s,border-color .4s;border-bottom:1px solid transparent;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 64px;display:flex;justify-content:space-between;align-items:center;gap:28px;transition:background .4s,padding .4s,border-color .4s;border-bottom:1px solid transparent;}
 nav.scrolled{background:rgba(9,9,11,.72);backdrop-filter:blur(16px) saturate(1.1);-webkit-backdrop-filter:blur(16px) saturate(1.1);border-bottom:1px solid rgba(201,168,76,.14);padding:16px 64px;}
 .nav-logo{text-decoration:none;display:flex;align-items:center;transition:transform .3s;}
 .nav-logo:hover{transform:scale(1.05);}
@@ -640,6 +640,14 @@ section[id]{scroll-margin-top:94px;}
 .mnav a.active,.mnav a:hover{color:var(--gold);}
 @media(max-width:1024px){.nav-links{display:none;}.nav-burger{display:flex;}}
 section{scroll-margin-top:84px;}
+
+.nav-logo{flex-shrink:0;}
+.nav-links{gap:clamp(14px,1.8vw,34px)!important;flex-wrap:nowrap;}
+.nav-links a{white-space:nowrap;}
+.nav-links li{flex-shrink:0;}
+.lang-sw{flex-shrink:0;}
+@media(max-width:1400px){nav{padding:20px 32px;}}
+@media(max-width:1150px){.nav-links{gap:12px!important;} .nav-links a{font-size:10.5px!important;letter-spacing:1px!important;}}
 </style>
 </head>
 <body class="lang-uk">

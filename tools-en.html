@@ -133,6 +133,13 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 .bx-done{display:none;margin-top:16px;font-size:14px;color:var(--gold);text-align:center;}
 .bx-done.on{display:block;animation:fade .4s ease;}
 @media(min-width:620px){.tool-grid{grid-template-columns:repeat(3,1fr);} .opts{grid-template-columns:repeat(4,1fr);}}
+
+.about-box{margin:0 0 26px;padding:24px 26px;border:1px solid rgba(201,168,76,.18);border-radius:14px;background:rgba(201,168,76,.035);}
+.about-box h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:21px;color:var(--gold);margin:0 0 12px;font-weight:600;}
+.about-box p{font-size:14px;color:rgba(245,243,238,.74);line-height:1.75;margin-bottom:11px;}
+.about-box p:last-child{margin-bottom:0;}
+.about-box strong{color:var(--white);font-weight:600;}
+.about-box em{color:rgba(245,243,238,.85);}
 </style>
 </head>
 <body>
@@ -161,6 +168,7 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 
   <!-- PHQ-9 -->
   <div class="panel" id="p-phq">
+    <div class="about-box"><h3>About the PHQ-9</h3><p><strong>What it is.</strong> The PHQ-9 (Patient Health Questionnaire-9) is a brief self-report scale measuring the severity of depressive symptoms over the past two weeks. Its nine items correspond to the nine diagnostic criteria for a depressive episode.</p><p><strong>Who developed it.</strong> The questionnaire was created by Dr Robert L. Spitzer, Dr Janet B.W. Williams and Dr Kurt Kroenke with colleagues as part of the PRIME-MD project, supported by an educational grant from Pfizer. It is one of the most widely used depression screening tools in the world.</p><p><strong>What it is used for.</strong> The PHQ-9 is used in primary care and psychological practice for two purposes: to identify the likely presence of depressive symptoms and — when repeated — to track changes in a person's state over time. Each item is scored from 0 to 3, with a maximum of 27 points.</p><p><strong>What it does not do.</strong> The questionnaire does not establish a diagnosis and does not replace clinical assessment. A high score only means symptoms are pronounced and a specialist should be consulted for a full evaluation.</p></div>
     <div class="note">Over the last 2 weeks, how often have you been bothered by any of the following problems?</div>
     <div class="qbar"><i id="bar-phq"></i></div>
     <div class="q"><div class="q-txt"><span class="qn">01</span>Little interest or pleasure in doing things</div><div class="opts"><button type="button" onclick="pick('phq',0,0,this)">Not at all</button><button type="button" onclick="pick('phq',0,1,this)">Several days</button><button type="button" onclick="pick('phq',0,2,this)">More than half the days</button><button type="button" onclick="pick('phq',0,3,this)">Nearly every day</button></div></div>
@@ -190,6 +198,7 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 
   <!-- GAD-7 -->
   <div class="panel" id="p-gad">
+    <div class="about-box"><h3>About the GAD-7</h3><p><strong>What it is.</strong> The GAD-7 (Generalized Anxiety Disorder-7) is a seven-item scale assessing the severity of anxiety symptoms over the past two weeks. It was developed as a screening tool for generalised anxiety disorder.</p><p><strong>Who developed it.</strong> The questionnaire was created by Dr Robert L. Spitzer, Dr Kurt Kroenke, Dr Janet B.W. Williams and Bernd Löwe. It was first published in 2006 in the <em>Archives of Internal Medicine</em>.</p><p><strong>What it is used for.</strong> Beyond generalised anxiety, the GAD-7 has shown acceptable sensitivity for screening panic disorder, social anxiety and post-traumatic stress disorder. Each item is scored from 0 to 3, with a maximum of 21 points.</p><p><strong>The key cut-off.</strong> Official guidance identifies a score of 10 or above as the threshold warranting further evaluation by a specialist — this is the cut-off used in clinical practice.</p></div>
     <div class="note">Over the last 2 weeks, how often have you been bothered by any of the following problems?</div>
     <div class="qbar"><i id="bar-gad"></i></div>
     <div class="q"><div class="q-txt"><span class="qn">01</span>Feeling nervous, anxious, or on edge</div><div class="opts"><button type="button" onclick="pick('gad',0,0,this)">Not at all</button><button type="button" onclick="pick('gad',0,1,this)">Several days</button><button type="button" onclick="pick('gad',0,2,this)">More than half the days</button><button type="button" onclick="pick('gad',0,3,this)">Nearly every day</button></div></div>
@@ -230,6 +239,7 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
       <button class="bx-btn" id="bx-btn" onclick="toggleBx()">Start</button>
       <div class="bx-done" id="bx-done">Done. Notice how your state has changed.</div>
     </div>
+    <div class="about-box"><h3>How many cycles you need</h3><p>One cycle is four phases of four seconds each — about 16 seconds in total. So <strong>4 cycles ≈ 1 minute</strong> of practice.</p><p><strong>Quick calming in the moment.</strong> When you need to reduce acute tension — before a difficult conversation, or as anxiety builds — <strong>1–3 minutes, that is 4–12 cycles</strong>, is usually enough. Even a single minute of focused breathing helps restore mental clarity.</p><p><strong>Deeper relaxation.</strong> For fuller calming of the nervous system, <strong>4–5 minutes, roughly 15–18 cycles</strong>, is recommended.</p><p><strong>Regular practice.</strong> A Stanford University study (Cell Reports Medicine, 2023) found that <strong>5 minutes of daily breathwork</strong> over a month was associated with improved mood and reduced anxiety. The effect is cumulative: regularity matters more than the length of any single session.</p><p><strong>Practical tip.</strong> Learn the technique while calm — then it will work automatically in a moment of real stress. If four seconds feels too long, start with three: what matters is that all four phases are equal in length.</p></div>
     <div class="note" style="margin-top:26px;"><strong>Safety notes.</strong> Stop the exercise if you feel dizzy, uncomfortable or unwell. Do not perform it if you have respiratory or cardiovascular conditions without consulting a doctor first.</div>
   </div>
 

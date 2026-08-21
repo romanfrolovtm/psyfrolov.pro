@@ -133,6 +133,13 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 .bx-done{display:none;margin-top:16px;font-size:14px;color:var(--gold);text-align:center;}
 .bx-done.on{display:block;animation:fade .4s ease;}
 @media(min-width:620px){.tool-grid{grid-template-columns:repeat(3,1fr);} .opts{grid-template-columns:repeat(4,1fr);}}
+
+.about-box{margin:0 0 26px;padding:24px 26px;border:1px solid rgba(201,168,76,.18);border-radius:14px;background:rgba(201,168,76,.035);}
+.about-box h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:21px;color:var(--gold);margin:0 0 12px;font-weight:600;}
+.about-box p{font-size:14px;color:rgba(245,243,238,.74);line-height:1.75;margin-bottom:11px;}
+.about-box p:last-child{margin-bottom:0;}
+.about-box strong{color:var(--white);font-weight:600;}
+.about-box em{color:rgba(245,243,238,.85);}
 </style>
 </head>
 <body>
@@ -161,6 +168,7 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 
   <!-- PHQ-9 -->
   <div class="panel" id="p-phq">
+    <div class="about-box"><h3>Об опроснике PHQ-9</h3><p><strong>Что это.</strong> PHQ-9 (Patient Health Questionnaire-9) — краткая шкала самооценки, измеряющая выраженность депрессивных симптомов за последние две недели. Девять пунктов опросника соответствуют девяти диагностическим критериям депрессивного эпизода.</p><p><strong>Кто разработал.</strong> Опросник создали д-р Robert L. Spitzer, д-р Janet B.W. Williams и д-р Kurt Kroenke с коллегами в рамках проекта PRIME-MD при образовательном гранте компании Pfizer. Это один из самых распространённых инструментов скрининга депрессии в мире.</p><p><strong>Для чего применяется.</strong> PHQ-9 используют в первичной медицинской помощи и психологической практике для двух задач: выявить вероятное наличие депрессивных симптомов и — при повторном прохождении — отслеживать динамику состояния во времени. Каждый пункт оценивается от 0 до 3, максимум 27 баллов.</p><p><strong>Чего он не делает.</strong> Опросник не устанавливает диагноз и не заменяет клиническую оценку. Высокий балл означает лишь то, что симптомы выражены и стоит обратиться к специалисту для полноценной оценки.</p></div>
     <div class="note">Как часто за последние 2 недели вас беспокоили следующие проблемы?</div>
     <div class="qbar"><i id="bar-phq"></i></div>
     <div class="q"><div class="q-txt"><span class="qn">01</span>Сниженный интерес или удовольствие от дел</div><div class="opts"><button type="button" onclick="pick('phq',0,0,this)">Совсем нет</button><button type="button" onclick="pick('phq',0,1,this)">Несколько дней</button><button type="button" onclick="pick('phq',0,2,this)">Более половины дней</button><button type="button" onclick="pick('phq',0,3,this)">Почти каждый день</button></div></div>
@@ -190,6 +198,7 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 
   <!-- GAD-7 -->
   <div class="panel" id="p-gad">
+    <div class="about-box"><h3>Об опроснике GAD-7</h3><p><strong>Что это.</strong> GAD-7 (Generalized Anxiety Disorder-7) — шкала из семи пунктов для оценки выраженности тревожных симптомов за последние две недели. Разработана как инструмент скрининга генерализованного тревожного расстройства.</p><p><strong>Кто разработал.</strong> Опросник создали д-р Robert L. Spitzer, д-р Kurt Kroenke, д-р Janet B.W. Williams и Bernd Löwe. Впервые опубликован в 2006 году в <em>Archives of Internal Medicine</em>.</p><p><strong>Для чего применяется.</strong> Помимо генерализованной тревоги, GAD-7 показал приемлемую чувствительность и для скрининга панического расстройства, социальной тревоги и посттравматического стрессового расстройства. Каждый пункт оценивается от 0 до 3, максимум 21 балл.</p><p><strong>Ключевой порог.</strong> По официальным рекомендациям, результат 10 баллов и выше является основанием для дальнейшей оценки специалистом — именно этот порог используется в клинической практике.</p></div>
     <div class="note">Как часто за последние 2 недели вас беспокоили следующие проблемы?</div>
     <div class="qbar"><i id="bar-gad"></i></div>
     <div class="q"><div class="q-txt"><span class="qn">01</span>Чувство нервозности, тревоги или напряжения</div><div class="opts"><button type="button" onclick="pick('gad',0,0,this)">Совсем нет</button><button type="button" onclick="pick('gad',0,1,this)">Несколько дней</button><button type="button" onclick="pick('gad',0,2,this)">Более половины дней</button><button type="button" onclick="pick('gad',0,3,this)">Почти каждый день</button></div></div>
@@ -230,6 +239,7 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
       <button class="bx-btn" id="bx-btn" onclick="toggleBx()">Начать</button>
       <div class="bx-done" id="bx-done">Готово. Обратите внимание, как изменилось состояние.</div>
     </div>
+    <div class="about-box"><h3>Сколько циклов нужно</h3><p>Один цикл — это четыре фазы по четыре секунды, то есть примерно 16 секунд. Значит, <strong>4 цикла ≈ 1 минута</strong> практики.</p><p><strong>Быстрое успокоение в моменте.</strong> Когда нужно снизить острое напряжение — перед сложным разговором, при нарастании тревоги — обычно достаточно <strong>1–3 минут, то есть 4–12 циклов</strong>. Уже одна минута сосредоточенного дыхания помогает вернуть ясность мышления.</p><p><strong>Более глубокое расслабление.</strong> Для полного успокоения нервной системы рекомендуют <strong>4–5 минут, то есть около 15–18 циклов</strong>.</p><p><strong>Регулярная практика.</strong> Исследование Стэнфордского университета (Cell Reports Medicine, 2023) показало, что <strong>5 минут ежедневной дыхательной практики</strong> в течение месяца связаны с улучшением настроения и снижением тревожности. Эффект накопительный: важна регулярность, а не длительность отдельной сессии.</p><p><strong>Практический совет.</strong> Освойте технику в спокойном состоянии — тогда в момент реального стресса она сработает автоматически. Если четыре секунды даются трудно, начните с трёх: главное, чтобы все четыре фазы были одинаковой длительности.</p></div>
     <div class="note" style="margin-top:26px;"><strong>Правила безопасности.</strong> Остановите упражнение, если почувствовали головокружение, дискомфорт или ухудшение самочувствия. Не выполняйте его при заболеваниях органов дыхания или сердечно-сосудистой системы без консультации с врачом.</div>
   </div>
 

@@ -133,6 +133,13 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 .bx-done{display:none;margin-top:16px;font-size:14px;color:var(--gold);text-align:center;}
 .bx-done.on{display:block;animation:fade .4s ease;}
 @media(min-width:620px){.tool-grid{grid-template-columns:repeat(3,1fr);} .opts{grid-template-columns:repeat(4,1fr);}}
+
+.about-box{margin:0 0 26px;padding:24px 26px;border:1px solid rgba(201,168,76,.18);border-radius:14px;background:rgba(201,168,76,.035);}
+.about-box h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:21px;color:var(--gold);margin:0 0 12px;font-weight:600;}
+.about-box p{font-size:14px;color:rgba(245,243,238,.74);line-height:1.75;margin-bottom:11px;}
+.about-box p:last-child{margin-bottom:0;}
+.about-box strong{color:var(--white);font-weight:600;}
+.about-box em{color:rgba(245,243,238,.85);}
 </style>
 </head>
 <body>
@@ -161,6 +168,7 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 
   <!-- PHQ-9 -->
   <div class="panel" id="p-phq">
+    <div class="about-box"><h3>O kwestionariuszu PHQ-9</h3><p><strong>Czym jest.</strong> PHQ-9 (Patient Health Questionnaire-9) to krótka skala samooceny mierząca nasilenie objawów depresyjnych w ciągu ostatnich dwóch tygodni. Dziewięć pozycji odpowiada dziewięciu kryteriom diagnostycznym epizodu depresyjnego.</p><p><strong>Kto opracował.</strong> Kwestionariusz stworzyli dr Robert L. Spitzer, dr Janet B.W. Williams i dr Kurt Kroenke wraz ze współpracownikami w ramach projektu PRIME-MD, przy wsparciu grantu edukacyjnego firmy Pfizer. To jedno z najczęściej stosowanych narzędzi przesiewowych depresji na świecie.</p><p><strong>Do czego służy.</strong> PHQ-9 stosuje się w podstawowej opiece zdrowotnej i praktyce psychologicznej do dwóch zadań: wykrycia prawdopodobnej obecności objawów depresyjnych oraz — przy powtórnym wypełnieniu — śledzenia zmian stanu w czasie. Każda pozycja oceniana jest od 0 do 3, maksymalnie 27 punktów.</p><p><strong>Czego nie robi.</strong> Kwestionariusz nie stawia diagnozy i nie zastępuje oceny klinicznej. Wysoki wynik oznacza jedynie, że objawy są nasilone i warto skonsultować się ze specjalistą.</p></div>
     <div class="note">Jak często w ciągu ostatnich 2 tygodni dokuczały Ci następujące problemy?</div>
     <div class="qbar"><i id="bar-phq"></i></div>
     <div class="q"><div class="q-txt"><span class="qn">01</span>Małe zainteresowanie lub brak przyjemności z wykonywania czynności</div><div class="opts"><button type="button" onclick="pick('phq',0,0,this)">Wcale</button><button type="button" onclick="pick('phq',0,1,this)">Kilka dni</button><button type="button" onclick="pick('phq',0,2,this)">Więcej niż połowę dni</button><button type="button" onclick="pick('phq',0,3,this)">Prawie codziennie</button></div></div>
@@ -190,6 +198,7 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 
   <!-- GAD-7 -->
   <div class="panel" id="p-gad">
+    <div class="about-box"><h3>O kwestionariuszu GAD-7</h3><p><strong>Czym jest.</strong> GAD-7 (Generalized Anxiety Disorder-7) to siedmiopozycyjna skala oceniająca nasilenie objawów lękowych w ciągu ostatnich dwóch tygodni. Opracowana jako narzędzie przesiewowe uogólnionego zaburzenia lękowego.</p><p><strong>Kto opracował.</strong> Kwestionariusz stworzyli dr Robert L. Spitzer, dr Kurt Kroenke, dr Janet B.W. Williams oraz Bernd Löwe. Po raz pierwszy opublikowany w 2006 roku w <em>Archives of Internal Medicine</em>.</p><p><strong>Do czego służy.</strong> Poza lękiem uogólnionym GAD-7 wykazał akceptowalną czułość również w przesiewie zaburzenia panicznego, lęku społecznego i zespołu stresu pourazowego. Każda pozycja oceniana jest od 0 do 3, maksymalnie 21 punktów.</p><p><strong>Kluczowy próg.</strong> Zgodnie z oficjalnymi zaleceniami wynik 10 punktów lub wyższy stanowi podstawę do dalszej oceny przez specjalistę — ten próg stosuje się w praktyce klinicznej.</p></div>
     <div class="note">Jak często w ciągu ostatnich 2 tygodni dokuczały Ci następujące problemy?</div>
     <div class="qbar"><i id="bar-gad"></i></div>
     <div class="q"><div class="q-txt"><span class="qn">01</span>Uczucie zdenerwowania, lęku lub napięcia</div><div class="opts"><button type="button" onclick="pick('gad',0,0,this)">Wcale</button><button type="button" onclick="pick('gad',0,1,this)">Kilka dni</button><button type="button" onclick="pick('gad',0,2,this)">Więcej niż połowę dni</button><button type="button" onclick="pick('gad',0,3,this)">Prawie codziennie</button></div></div>
@@ -230,6 +239,7 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
       <button class="bx-btn" id="bx-btn" onclick="toggleBx()">Rozpocznij</button>
       <div class="bx-done" id="bx-done">Gotowe. Zwróć uwagę, jak zmienił się Twój stan.</div>
     </div>
+    <div class="about-box"><h3>Ile cykli potrzeba</h3><p>Jeden cykl to cztery fazy po cztery sekundy, czyli około 16 sekund. Zatem <strong>4 cykle ≈ 1 minuta</strong> praktyki.</p><p><strong>Szybkie uspokojenie w danej chwili.</strong> Gdy trzeba obniżyć ostre napięcie — przed trudną rozmową, przy narastającym lęku — zwykle wystarcza <strong>1–3 minut, czyli 4–12 cykli</strong>. Już jedna minuta skupionego oddychania pomaga odzyskać jasność myślenia.</p><p><strong>Głębsze rozluźnienie.</strong> Dla pełniejszego uspokojenia układu nerwowego zaleca się <strong>4–5 minut, czyli około 15–18 cykli</strong>.</p><p><strong>Regularna praktyka.</strong> Badanie Uniwersytetu Stanforda (Cell Reports Medicine, 2023) wykazało, że <strong>5 minut codziennej praktyki oddechowej</strong> przez miesiąc wiąże się z poprawą nastroju i obniżeniem lęku. Efekt jest kumulatywny: liczy się regularność, a nie długość pojedynczej sesji.</p><p><strong>Praktyczna rada.</strong> Opanuj technikę w spokoju — wtedy w chwili realnego stresu zadziała automatycznie. Jeśli cztery sekundy są za długie, zacznij od trzech: najważniejsze, by wszystkie cztery fazy trwały tyle samo.</p></div>
     <div class="note" style="margin-top:26px;"><strong>Zasady bezpieczeństwa.</strong> Przerwij ćwiczenie, jeśli poczujesz zawroty głowy, dyskomfort lub pogorszenie samopoczucia. Nie wykonuj go przy chorobach układu oddechowego lub krążenia bez konsultacji z lekarzem.</div>
   </div>
 
