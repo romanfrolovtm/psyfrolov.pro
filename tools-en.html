@@ -179,7 +179,7 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
     <button class="tool-card" id="c-phq" onclick="openTool('phq')"><div class="tc-name">PHQ-9</div><div class="tc-sub">Depression screening · 9 questions · 2 minutes</div></button>
     <button class="tool-card" id="c-gad" onclick="openTool('gad')"><div class="tc-name">GAD-7</div><div class="tc-sub">Anxiety screening · 7 questions · 2 minutes</div></button>
     <button class="tool-card" id="c-bx" onclick="openTool('bx')"><div class="tc-name">Box breathing</div><div class="tc-sub">Self-regulation exercise · 4 cycles</div></button>
-    <button class="tool-card" id="c-emdr" onclick="openTool('emdr')"><div class="tc-name">Bilateral stimulation</div><div class="tc-sub">EMDR · 10–12 cycles</div></button>
+    <button class="tool-card" id="c-emdr" onclick="openTool('emdr')"><div class="tc-name">Bilateral stimulation</div><div class="tc-sub">EMDR · 20–30 sec/set</div></button>
   </div>
 
   <!-- PHQ-9 -->
@@ -261,10 +261,10 @@ blockquote{border-left:2px solid var(--gold);padding:4px 0 4px 20px;margin:24px 
 
   <!-- EMDR / Bilateral stimulation -->
   <div class="panel" id="p-emdr">
-    <div class="note">A method for desensitising and reprocessing traumatic experiences through eye movements. Developed by American psychologist Francine Shapiro in 1987 — she noticed that eye movements could reduce the intensity of distressing memories, and built a structured therapeutic protocol on that observation. The exact mechanism is not fully understood, but the leading hypothesis links bilateral stimulation (alternating activation of the left and right hemispheres) to how the brain naturally reprocesses memories during REM (rapid eye movement) sleep. Guided eye movements or other bilateral stimulation are thought to activate a similar process while awake, helping to "unstick" a memory that has remained emotionally lodged. For adults with PTSD, the NICE guideline (NG116) lists EMDR alongside trauma-focused CBT as a first-line treatment option. <strong>An important boundary:</strong> Roman Frolov works exclusively within the cognitive behavioural (CBT) approach — this exercise is a separate, publicly available self-help practice based on open scientific sources, and it is not part of the consultation protocol.</div>
+    <div class="note">A method for desensitising and reprocessing traumatic experiences through eye movements. Developed by American psychologist Francine Shapiro in 1987 — she noticed that eye movements could reduce the intensity of distressing memories, and built a structured therapeutic protocol on that observation. The exact mechanism is not fully understood, but the leading hypothesis links bilateral stimulation (alternating activation of the left and right hemispheres) to how the brain naturally reprocesses memories during REM (rapid eye movement) sleep. Guided eye movements or other bilateral stimulation are thought to activate a similar process while awake, helping to "unstick" a memory that has remained emotionally lodged. For adults with PTSD, the NICE guideline (NG116) lists EMDR alongside trauma-focused CBT as a first-line treatment option. <strong>An important boundary:</strong> I work exclusively within the cognitive behavioural (CBT) approach — this exercise is a separate, publicly available self-help practice based on open scientific sources, and it is not part of my consultation protocol. The suggested set length (20–30 seconds) matches the range used in clinical bilateral stimulation practice; the stopping point is your own felt sense, following the "Butterfly Hug" technique that Francine Shapiro herself adapted for self-use outside of therapy.</div>
     <div class="about-box">
       <h3>How to use it</h3>
-      <ol style="margin:0 0 0 18px;"><li style="margin-bottom:8px;">Recall a stressful event and keep it in focus</li><li style="margin-bottom:8px;">Sit comfortably, the moving point at eye level, at whatever distance feels comfortable for your screen</li><li style="margin-bottom:8px;">Press "Start" and follow the point smoothly with your eyes, keeping your head still</li><li style="margin-bottom:8px;">Continue until the cycle counter shows around 10–12 — after that, just go by how you feel</li><li style="margin-bottom:8px;">Press "Pause" whenever it feels like enough</li><li style="margin-bottom:8px;">Afterwards, notice how your state has changed</li></ol>
+      <ol style="margin:0 0 0 18px;"><li style="margin-bottom:8px;">Recall a stressful event and keep it in focus</li><li style="margin-bottom:8px;">Sit comfortably, the moving point at eye level, at whatever distance feels comfortable for your screen</li><li style="margin-bottom:8px;">Press "Start" and follow the point smoothly with your eyes, keeping your head still</li><li style="margin-bottom:8px;">Follow the point for 20–30 seconds — this is the range used in clinical bilateral stimulation practice</li><li style="margin-bottom:8px;">Press "Pause" and check in with yourself: if tension is still there, do another set</li><li style="margin-bottom:8px;">The stopping point is your own felt sense of "enough", not a fixed number of sets</li><li style="margin-bottom:8px;">Afterwards, notice how your state has changed</li></ol>
     </div>
     <div class="emdr-wrap">
       <div class="emdr-stage"><div class="emdr-dot" id="emdr-dot"></div></div>
@@ -378,7 +378,7 @@ function stopBx(manual){
 
 /* EMDR bilateral stimulation — requestAnimationFrame */
 var emdrOn=false,emdrRaf=null,emdrStart=0,emdrElapsed=0,emdrCyc=0,emdrDir=1,emdrSpeed=3;
-var EMDR_W=null,EMDR_PERIOD=[0,8000,6000,4500,3000,2000]; // ms за один проход (индекс = speed); при 3 (средняя) цикл ≈9с, 10–12 циклів ≈ 1.5–2 хв
+var EMDR_W=null,EMDR_PERIOD=[0,8000,6000,4500,3000,2000]; // ms за один проход (индекс = speed); при 3 (средняя) цикл ≈9с, орієнтир — 20–30с на підхід
 function emdrSpeedChange(v){emdrSpeed=parseInt(v,10);}
 function emdrWidth(){
   var stage=document.querySelector('.emdr-stage');
@@ -406,7 +406,8 @@ function emdrTick(now){
     emdrCyc=cycleNow;
     var cycEl=document.getElementById('emdr-cyc');
     cycEl.textContent=emdrCyc;
-    cycEl.classList.toggle('es-ready', emdrCyc>=10);
+    cycEl.classList.toggle('es-ready', emdrCyc>=1);
+    document.getElementById('emdr-time').classList.toggle('es-ready', emdrElapsed>=20000);
   }
   var pos = t<0.5 ? (t*2)*w : (2-t*2)*w;
   document.getElementById('emdr-dot').style.left=(16+pos)+'px';
