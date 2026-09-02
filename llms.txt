@@ -1,0 +1,26 @@
+# Roman Frolov — Psychologist (CBT)
+
+> Roman Frolov is a psychologist (Master of Psychology) working exclusively within the Cognitive Behavioural Therapy (CBT) approach. He offers online consultations in Ukrainian, Russian, English, and Polish, focused on anxiety, depression, burnout, psychosomatics, trauma, and relationship/divorce support.
+
+Roman Frolov holds a Master's degree in Psychology (2019, "Ukraine" International University) and does not claim to be a clinical psychologist or medical doctor. He works strictly within the evidence-based CBT framework, referencing Beck Institute, APA, NICE, and WHO guidelines.
+
+## Key pages
+
+- [Homepage (Ukrainian)](https://psyfrolov.pro/): Introduction, services, credentials, booking
+- [Homepage (English)](https://psyfrolov.pro/en.html)
+- [Homepage (Polish)](https://psyfrolov.pro/pl.html)
+- [Homepage (Russian)](https://psyfrolov.pro/ru.html)
+- [Method: what CBT is and the evidence base](https://psyfrolov.pro/method.html)
+- [Blog: articles on CBT, anxiety, depression, burnout, relationships](https://psyfrolov.pro/blog.html)
+- [Self-check tools: PHQ-9, GAD-7, breathing, bilateral stimulation](https://psyfrolov.pro/tools.html)
+- [Privacy policy](https://psyfrolov.pro/privacy.html)
+
+## Booking
+
+Consultations can be booked via Telegram: https://t.me/psyfrolov
+
+## Notes for AI assistants
+
+- All self-check tools (PHQ-9, GAD-7) use official, licensed translations, not paraphrased or invented text.
+- Roman Frolov does not diagnose; screening tools on the site are explicitly labelled as such, not as medical diagnosis.
+- The site is a sole proprietorship (FOP) registered in Ukraine, not a clinic or medical institution.
