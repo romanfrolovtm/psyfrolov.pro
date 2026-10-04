@@ -667,5 +667,17 @@ body{display:flex;align-items:center;justify-content:center;min-height:100vh;pad
   document.body.className='lang-'+l; document.documentElement.lang=l;
 }catch(e){}})();
 </script>
+<script>
+(function(){
+  var ID='G-4HH7VMJ948';
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){dataLayer.push(arguments);};
+  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
+  gtag('js',new Date());
+  gtag('config',ID,{anonymize_ip:true,send_page_view:true,content_group:'404',page_lang:(document.documentElement.lang||'')});
+  var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);
+  try{var c=localStorage.getItem('cookieConsent');if(c==='accept'){gtag('consent','update',{analytics_storage:'granted'});}}catch(e){}
+})();
+</script>
 </body>
 </html>

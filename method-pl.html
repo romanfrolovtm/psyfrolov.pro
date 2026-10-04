@@ -1006,7 +1006,7 @@ function setLang(l){
   function gtag(){dataLayer.push(arguments);} window.gtag=gtag;
   gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
   gtag('js',new Date());
-  gtag('config',ID,{anonymize_ip:true,send_page_view:true});
+  gtag('config',ID,{anonymize_ip:true,send_page_view:true,content_group:'method',page_lang:(document.documentElement.lang||'')});
   var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);
   try{
     var c=localStorage.getItem('cookieConsent');
