@@ -179,6 +179,9 @@ function loadAnalytics(){
     if(a.classList.contains('lang-btn')||(a.closest&&a.closest('.nav-lang'))) gtag('event','lang_switch',{link_text:T,page_lang:L});
     else if(h.indexOf('t.me/')>-1) gtag('event','book_click',{link_text:T,page_lang:L});
     else if(h.indexOf('mindlyspace.com')>-1) gtag('event','mindly_click',{link_text:T,page_lang:L});
+    else if(h.indexOf('yanly.care')>-1) gtag('event','yanly_click',{link_text:T,page_lang:L});
+    else if(h.indexOf('mentalzon.com')>-1) gtag('event','mentalzon_click',{link_text:T,page_lang:L});
+    else if(h.indexOf('qui.help')>-1) gtag('event','qui_click',{link_text:T,page_lang:L});
   },true);
 }
 </script>
