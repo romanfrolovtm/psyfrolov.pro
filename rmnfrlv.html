@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RMNFRLV — Роман Фролов, психолог</title>
+<meta name="description" content="RMNFRLV (rmnfrlv) — це Роман Фролов, психолог, магістр психології. Працюю в когнітивно-поведінковому підході (КПТ). RMNFRLV — мій номер авто і нікнейм у Telegram.">
+<meta name="theme-color" content="#0F0F12">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://psyfrolov.pro/rmnfrlv">
+<meta name="robots" content="index,follow,max-image-preview:large">
+
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Роман Фролов · Психолог">
+<meta property="og:title" content="RMNFRLV — Роман Фролов, психолог">
+<meta property="og:description" content="Помітили. Пошукали. Знайшли. RMNFRLV — мій номер авто і нікнейм у Telegram.">
+<meta property="og:url" content="https://psyfrolov.pro/rmnfrlv">
+<meta property="og:image" content="https://psyfrolov.pro/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RMNFRLV — Роман Фролов, психолог">
+<meta name="twitter:description" content="Помітили. Пошукали. Знайшли. RMNFRLV — мій номер авто і нікнейм у Telegram.">
+<meta name="twitter:image" content="https://psyfrolov.pro/og.png">
+
+<link rel="preload" as="image" href="/hero.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --gold:#C9A84C; --gold-light:#E8C97A; --gold-deep:#9C7B2E;
+  --gold-grad:linear-gradient(135deg,#F2DCA0 0%,#E8C97A 28%,#C9A84C 58%,#9C7B2E 100%);
+  --black:#09090B; --dark:#0F0F12; --dark2:#16161B;
+  --white:#F5F0E8; --white-60:rgba(245,240,232,0.62); --white-10:rgba(245,240,232,0.08);
+  --glass-brd:rgba(201,168,76,0.16);
+  --fr-mask:url("/fr-logo.png");
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  min-height:100vh;
+  background-color:var(--black);
+  background-image:
+    radial-gradient(820px 620px at 8% -8%, rgba(201,168,76,0.11), transparent 60%),
+    radial-gradient(760px 700px at 104% 26%, rgba(201,168,76,0.07), transparent 55%),
+    radial-gradient(1000px 820px at 50% 116%, rgba(201,168,76,0.06), transparent 60%);
+  background-attachment:fixed; background-repeat:no-repeat;
+  color:var(--white); font-family:'Montserrat',sans-serif; font-weight:300;
+  overflow-x:hidden; -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:column;
+}
+
+/* --- язык: тот же механизм, что на основном сайте --- */
+body:not(.lang-uk):not(.lang-ru):not(.lang-en):not(.lang-pl) .ru,
+body:not(.lang-uk):not(.lang-ru):not(.lang-en):not(.lang-pl) .en,
+body:not(.lang-uk):not(.lang-ru):not(.lang-en):not(.lang-pl) .pl{display:none !important;}
+body.lang-uk .ru,body.lang-uk .en,body.lang-uk .pl,
+body.lang-ru .uk,body.lang-ru .en,body.lang-ru .pl,
+body.lang-en .uk,body.lang-en .ru,body.lang-en .pl,
+body.lang-pl .uk,body.lang-pl .ru,body.lang-pl .en{display:none !important;}
+
+/* --- шапка --- */
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:20px 28px;border-bottom:1px solid var(--white-10);}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit;}
+.logo-mark{display:inline-block;width:44px;height:40px;flex-shrink:0;
+  background:linear-gradient(135deg,#FBEFC6 0%,#E8C97A 18%,#C9A84C 40%,#9A7A2E 57%,#E6C271 78%,#C9A84C 100%);
+  -webkit-mask:var(--fr-mask) center/contain no-repeat;mask:var(--fr-mask) center/contain no-repeat;
+  filter:drop-shadow(0 2px 7px rgba(201,168,76,.32));}
+.nav-word{display:flex;flex-direction:column;line-height:1.35;
+  border-left:1px solid rgba(201,168,76,.22);padding-left:14px;}
+.nav-word b{font-weight:500;font-size:13px;letter-spacing:.5px;}
+.nav-word>span{font-size:9.5px;letter-spacing:2.2px;color:var(--white-60);text-transform:uppercase;}
+.lang-sw{display:flex;gap:4px;align-items:center;}
+.lang-btn{font-size:10px;letter-spacing:2px;color:var(--white-60);background:none;border:none;
+  cursor:pointer;padding:4px 8px;font-family:'Montserrat',sans-serif;font-weight:400;transition:color .3s;}
+.lang-btn.on{color:var(--gold);border-bottom:1px solid var(--gold);}
+.lang-btn:hover{color:var(--gold-light);}
+
+/* --- центр --- */
+main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:52px 22px 60px;gap:0;}
+
+.plate{display:inline-flex;align-items:stretch;border:1px solid rgba(201,168,76,.45);
+  border-radius:9px;overflow:hidden;background:rgba(22,22,27,.72);
+  box-shadow:0 0 0 1px rgba(201,168,76,.10), 0 22px 54px -26px rgba(201,168,76,.42);}
+.plate-band{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,#14213d,#0d1628);padding:0 9px;
+  border-right:1px solid rgba(201,168,76,.3);}
+.plate-band span{font-size:10px;font-weight:600;letter-spacing:1.5px;color:#cfd8ee;}
+.plate-txt{padding:14px 20px;font-weight:600;font-size:clamp(28px,8.5vw,52px);letter-spacing:.14em;
+  background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  line-height:1;}
+
+h1{margin-top:34px;font-family:'Cormorant Garamond',serif;font-weight:300;
+  font-size:clamp(27px,6.4vw,44px);line-height:1.2;letter-spacing:.4px;}
+
+.photo{margin-top:30px;width:132px;height:132px;border-radius:50%;object-fit:cover;
+  object-position:50% 22%;border:1px solid rgba(201,168,76,.42);
+  box-shadow:0 18px 46px -20px rgba(0,0,0,.8), 0 0 0 6px rgba(201,168,76,.05);}
+
+.lead{margin-top:26px;max-width:620px;font-size:14.5px;line-height:1.85;color:rgba(245,240,232,.84);}
+
+.cta{margin-top:36px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+.btn{font-family:'Montserrat',sans-serif;font-size:11.5px;letter-spacing:1.6px;text-transform:uppercase;
+  text-decoration:none;padding:14px 26px;border-radius:2px;transition:all .3s;white-space:nowrap;}
+.btn-main{background:var(--gold-grad);color:#0b0b0d;font-weight:600;}
+.btn-main:hover{box-shadow:0 14px 34px -12px rgba(201,168,76,.65);transform:translateY(-1px);}
+.btn-ghost{border:1px solid rgba(201,168,76,.5);color:var(--gold);font-weight:400;}
+.btn-ghost:hover{background:rgba(201,168,76,.09);border-color:var(--gold);}
+
+footer{border-top:1px solid var(--white-10);padding:22px 28px;text-align:center;
+  font-size:10px;letter-spacing:1.3px;color:rgba(245,240,232,.42);}
+footer a{color:var(--gold);text-decoration:none;opacity:.78;}
+footer a:hover{opacity:1;}
+
+/* --- cookie, как на остальных страницах --- */
+#cookieBar{position:fixed;left:0;right:0;bottom:0;z-index:300;background:rgba(15,15,18,.97);
+  backdrop-filter:blur(10px);border-top:1px solid rgba(201,168,76,.3);padding:16px 20px;
+  display:none;transform:translateY(100%);transition:transform .4s ease;}
+#cookieBar.show{display:block;transform:translateY(0);}
+#cookieBar .cb-in{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:16px;
+  flex-wrap:wrap;justify-content:center;}
+#cookieBar p{font-size:12.5px;color:rgba(245,243,238,.82);margin:0;flex:1;min-width:220px;line-height:1.55;}
+#cookieBar a.cb-more{color:var(--gold);text-decoration:underline;}
+#cookieBar .cb-btns{display:flex;gap:10px;}
+#cookieBar button{font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:1.2px;
+  padding:9px 18px;border-radius:2px;cursor:pointer;border:1px solid rgba(201,168,76,.45);
+  background:none;color:var(--gold);transition:all .3s;}
+#cookieBar .cb-accept{background:var(--gold-grad);color:#0b0b0d;font-weight:600;border-color:transparent;}
+#cookieBar button:hover{opacity:.85;}
+/* плашка cookie не должна перекрывать кнопки на коротком экране */
+body.cb-on main{padding-bottom:210px;}
+
+@media(max-width:600px){
+  nav{padding:16px 18px;}
+  .nav-word b{font-size:12px;} .logo-mark{width:38px;height:35px;}
+  main{padding:40px 18px 52px;}
+  .btn{width:100%;text-align:center;}
+  .cta{width:100%;max-width:330px;}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none !important;}}
+</style>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://psyfrolov.pro/#roman","name":"Roman Frolov","alternateName":["RMNFRLV","rmnfrlv","Роман Фролов","Роман Олександрович Фролов","Roman Oleksandrovych Frolov","psyfrolov"],"url":"https://psyfrolov.pro/","image":"https://psyfrolov.pro/hero.webp","jobTitle":"Psychologist (CBT approach)","description":"Психолог, магістр психології. Консультування онлайн у підході КПТ (CBT).","sameAs":["https://t.me/psyfrolov","https://t.me/rmnfrlv","https://www.instagram.com/romanfrolov","https://www.tiktok.com/@psyfrolov","https://yanly.care/experts/6d4e7ee6-4b51-4e1f-a8ba-f3e517abefff","https://app.mindlyspace.com/s/f1H4yX","https://mentalzon.com/uk/therapist/13687/%D1%80%D0%BE%D0%BC%D0%B0%D0%BD-%D1%84%D1%80%D0%BE%D0%BB%D0%BE%D0%B2-%D0%BE%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%D0%BE%D0%B2%D0%B8%D1%87","https://www.qui.help/ru/psychologists/details/roman-frolov1630681555"],"telephone":"+380775116677"},{"@type":"WebPage","@id":"https://psyfrolov.pro/rmnfrlv#webpage","url":"https://psyfrolov.pro/rmnfrlv","name":"RMNFRLV — Роман Фролов, психолог","inLanguage":["uk","ru","en","pl"],"isPartOf":{"@id":"https://psyfrolov.pro/#website"},"about":{"@id":"https://psyfrolov.pro/#roman"},"publisher":{"@id":"https://psyfrolov.pro/#roman"}}]}</script>
+</head>
+
+<body class="lang-uk">
+
+<nav>
+  <a href="/" class="nav-logo">
+    <span class="logo-mark" role="img" aria-label="FR"></span>
+    <span class="nav-word">
+      <b><span class="uk">Роман Фролов</span><span class="ru">Роман Фролов</span><span class="en">Roman Frolov</span><span class="pl">Roman Frolov</span></b>
+      <span class="uk">Психолог · КПТ</span><span class="ru">Психолог · КПТ</span><span class="en">Psychologist · CBT</span><span class="pl">Psycholog · CBT</span>
+    </span>
+  </a>
+  <div class="lang-sw">
+    <button type="button" class="lang-btn on" data-l="uk" hreflang="uk">UA</button>
+    <button type="button" class="lang-btn" data-l="en" hreflang="en">EN</button>
+    <button type="button" class="lang-btn" data-l="pl" hreflang="pl">PL</button>
+    <button type="button" class="lang-btn" data-l="ru" hreflang="ru">RU</button>
+  </div>
+</nav>
+
+<main>
+
+  <div class="plate" role="img" aria-label="RMNFRLV">
+    <div class="plate-band"><span>UA</span></div>
+    <div class="plate-txt">RMNFRLV</div>
+  </div>
+
+  <h1>
+    <span class="uk">Помітили. Пошукали. Знайшли 👀</span>
+    <span class="ru">Заметили. Поискали. Нашли 👀</span>
+    <span class="en">Noticed. Searched. Found 👀</span>
+    <span class="pl">Zauważone. Wyszukane. Znalezione 👀</span>
+  </h1>
+
+  <img class="photo" src="/hero.webp" width="132" height="132" fetchpriority="high" decoding="async"
+       alt="Роман Фролов — RMNFRLV">
+
+  <p class="lead">
+    <span class="uk">RMNFRLV — у русі чи в стані спокою — привернув вашу увагу. Як психолог, відзначу: допитливість — чудова ознака. Я Роман Фролов, психолог, працюю в когнітивно-поведінковому підході. RMNFRLV — мій номер авто і нікнейм у Telegram. Наступний крок — за вами.</span>
+    <span class="ru">RMNFRLV — в движении или в состоянии покоя — привлёк ваше внимание. Как психолог отмечу: любопытство — отличный знак. Я Роман Фролов, психолог, работаю в когнитивно-поведенческом подходе. RMNFRLV — мой номер авто и никнейм в Telegram. Следующий шаг — за вами.</span>
+    <span class="en">RMNFRLV — in motion or at rest — caught your attention. Speaking as a psychologist: curiosity is a great sign. I'm Roman Frolov, a psychologist working within the cognitive behavioural (CBT) approach. RMNFRLV is my car plate and my Telegram username. The next step is yours.</span>
+    <span class="pl">Tablica RMNFRLV — w ruchu czy w spoczynku — przyciągnęła uwagę. Jako psycholog powiem: ciekawość to świetny znak. Nazywam się Roman Frolov, jestem psychologiem i pracuję w podejściu poznawczo-behawioralnym. RMNFRLV to moja tablica rejestracyjna i nick na Telegramie. Następny krok należy do Ciebie.</span>
+  </p>
+
+  <div class="cta uk">
+    <a class="btn btn-main" href="https://t.me/rmnfrlv" target="_blank" rel="noopener">Написати в Telegram</a>
+    <a class="btn btn-ghost" href="/">Перейти на сайт</a>
+    <a class="btn btn-ghost" href="https://app.mindlyspace.com/s/f1H4yX" target="_blank" rel="noopener">Записатися на консультацію</a>
+  </div>
+  <div class="cta ru">
+    <a class="btn btn-main" href="https://t.me/rmnfrlv" target="_blank" rel="noopener">Написать в Telegram</a>
+    <a class="btn btn-ghost" href="/ru.html">Перейти на сайт</a>
+    <a class="btn btn-ghost" href="https://app.mindlyspace.com/s/f1H4yX" target="_blank" rel="noopener">Записаться на консультацию</a>
+  </div>
+  <div class="cta en">
+    <a class="btn btn-main" href="https://t.me/rmnfrlv" target="_blank" rel="noopener">Message me on Telegram</a>
+    <a class="btn btn-ghost" href="/en.html">Visit the website</a>
+    <a class="btn btn-ghost" href="https://app.mindlyspace.com/s/f1H4yX" target="_blank" rel="noopener">Book a consultation</a>
+  </div>
+  <div class="cta pl">
+    <a class="btn btn-main" href="https://t.me/rmnfrlv" target="_blank" rel="noopener">Napisz na Telegramie</a>
+    <a class="btn btn-ghost" href="/pl.html">Przejdź na stronę</a>
+    <a class="btn btn-ghost" href="https://app.mindlyspace.com/s/f1H4yX" target="_blank" rel="noopener">Umów konsultację</a>
+  </div>
+
+</main>
+
+<footer>
+  <span class="uk">© 2026 Роман Фролов · Магістр психології · КПТ · Онлайн</span>
+  <span class="ru">© 2026 Роман Фролов · Магистр психологии · КПТ · Онлайн</span>
+  <span class="en">© 2026 Roman Frolov · Master of Psychology · CBT · Online</span>
+  <span class="pl">© 2026 Roman Frolov · Magister psychologii · CBT · Online</span>
+  <br><a href="/">psyfrolov.pro</a> · <a href="https://t.me/rmnfrlv" target="_blank" rel="noopener">@rmnfrlv</a>
+</footer>
+
+<div id="cookieBar" role="dialog" aria-label="cookie">
+  <div class="cb-in">
+    <p>
+      <span class="uk">Ми використовуємо файли cookie для коректної роботи сайту. Аналітичні cookie — лише за вашою згодою. <a class="cb-more" href="/privacy.html">Політика конфіденційності</a></span>
+      <span class="ru">Мы используем файлы cookie для корректной работы сайта. Аналитические cookie — только с вашего согласия. <a class="cb-more" href="/privacy-ru.html">Политика конфиденциальности</a></span>
+      <span class="en">We use cookies so the site works correctly. Analytics cookies only with your consent. <a class="cb-more" href="/privacy-en.html">Privacy policy</a></span>
+      <span class="pl">Używamy plików cookie, aby strona działała poprawnie. Analityczne cookie — tylko za Twoją zgodą. <a class="cb-more" href="/privacy-pl.html">Polityka prywatności</a></span>
+    </p>
+    <div class="cb-btns">
+      <button class="cb-decline" onclick="cookieChoice(false)"><span class="uk">Відхилити</span><span class="ru">Отклонить</span><span class="en">Decline</span><span class="pl">Odrzuć</span></button>
+      <button class="cb-accept" onclick="cookieChoice(true)"><span class="uk">Прийняти</span><span class="ru">Принять</span><span class="en">Accept</span><span class="pl">Akceptuj</span></button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* язык: сохранённый выбор -> язык браузера -> украинский */
+(function(){
+  var L=['uk','ru','en','pl'];
+  function set(l,save){
+    for(var k=0;k<L.length;k++) document.body.classList.remove('lang-'+L[k]);
+    document.body.classList.add('lang-'+l);
+    document.documentElement.lang=l;
+    var bs=document.querySelectorAll('.lang-btn');
+    for(var i=0;i<bs.length;i++){
+      if(bs[i].getAttribute('data-l')===l) bs[i].classList.add('on'); else bs[i].classList.remove('on');
+    }
+    if(save){try{localStorage.setItem('rmnLang',l);}catch(e){}}
+  }
+  var l=null;
+  try{var s=localStorage.getItem('rmnLang'); if(s&&L.indexOf(s)>-1) l=s;}catch(e){}
+  if(!l){
+    var nv=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||''];
+    for(var i=0;i<nv.length&&!l;i++){
+      var c=(nv[i]||'').slice(0,2).toLowerCase(); if(c==='ua')c='uk';
+      if(L.indexOf(c)>-1) l=c;
+    }
+  }
+  set(l||'uk',false);
+  document.addEventListener('click',function(e){
+    var b=e.target&&e.target.closest?e.target.closest('.lang-btn'):null;
+    if(!b)return; e.preventDefault(); set(b.getAttribute('data-l'),true);
+  });
+})();
+
+function cookieChoice(ok){
+  try{localStorage.setItem('cookieConsent',ok?'accept':'decline');}catch(e){}
+  var b=document.getElementById('cookieBar');if(b){b.classList.remove('show');}
+  document.body.classList.remove('cb-on');
+  if(ok&&window.gtag){gtag('consent','update',{analytics_storage:'granted'});}
+}
+</script>
+
+<script>
+(function(){
+  var ID='G-4HH7VMJ948';
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);} window.gtag=gtag;
+  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
+  gtag('js',new Date());
+  gtag('config',ID,{anonymize_ip:true,send_page_view:true,content_group:'rmnfrlv',page_lang:(document.documentElement.lang||'')});
+  var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ID;document.head.appendChild(s);
+  try{
+    var c=localStorage.getItem('cookieConsent');
+    if(c==='accept'){gtag('consent','update',{analytics_storage:'granted'});}
+    else if(!c){var b=document.getElementById('cookieBar');if(b){setTimeout(function(){b.classList.add('show');document.body.classList.add('cb-on');},800);}}
+  }catch(e){}
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a'):null; if(!a)return;
+    var h=a.getAttribute('href')||'', L=document.documentElement.lang||'';
+    var T=(a.textContent||'').trim().slice(0,50);
+    if(h.indexOf('t.me/')>-1) gtag('event','book_click',{link_text:T,page_lang:L});
+    else if(h.indexOf('mindlyspace.com')>-1) gtag('event','mindly_click',{link_text:T,page_lang:L});
+  },true);
+  document.addEventListener('click',function(e){
+    var b=e.target&&e.target.closest?e.target.closest('.lang-btn'):null;
+    if(b) gtag('event','lang_switch',{link_text:b.getAttribute('data-l')||'',page_lang:(document.documentElement.lang||'')});
+  },true);
+})();
+</script>
+
+</body>
+</html>
