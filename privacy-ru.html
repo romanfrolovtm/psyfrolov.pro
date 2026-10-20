@@ -120,7 +120,7 @@ function loadAnalytics(){
   window.gtag=function(){dataLayer.push(arguments);};
   gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});
   gtag('js',new Date());
-  gtag('config',ID,{anonymize_ip:true,send_page_view:true,content_group:'other',page_lang:(document.documentElement.lang||'')});
+  gtag('config',ID,{anonymize_ip:true,send_page_view:true,content_group:'privacy',page_lang:(document.documentElement.lang||'')});
   var s=document.createElement('script');
   s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+ID;
   document.head.appendChild(s);
